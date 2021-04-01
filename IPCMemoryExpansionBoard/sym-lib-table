@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name IPCMemoryExpansionBoard)(type Legacy)(uri /home/mattis/IPCMemoryExpansion/IPCMemoryExpansionBoard/IPCMemoryExpansionBoard.lib)(options "")(descr ""))
+)
