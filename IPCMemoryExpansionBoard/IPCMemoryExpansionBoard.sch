@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector:C64AC J1
+L IPCMemoryExpansionBoard-rescue:C64AC-Connector J1
 U 1 1 6048349C
 P 1150 4200
 F 0 "J1" H 1070 7667 50  0000 C CNN
@@ -26,7 +26,7 @@ F 3 " ~" H 1150 4250 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0101
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0101
 U 1 1 60483571
 P 2300 1000
 F 0 "#PWR0101" H 2300 750 50  0001 C CNN
@@ -39,20 +39,18 @@ $EndComp
 Wire Wire Line
 	1450 1000 2300 1000
 $Comp
-L power:+5V #PWR0102
+L IPCMemoryExpansionBoard-rescue:+5V-power #PWR0102
 U 1 1 604835D7
-P 2200 900
-F 0 "#PWR0102" H 2200 750 50  0001 C CNN
-F 1 "+5V" H 2215 1073 50  0000 C CNN
-F 2 "" H 2200 900 50  0001 C CNN
-F 3 "" H 2200 900 50  0001 C CNN
-	1    2200 900 
+P 2400 900
+F 0 "#PWR0102" H 2400 750 50  0001 C CNN
+F 1 "+5V" H 2415 1073 50  0000 C CNN
+F 2 "" H 2400 900 50  0001 C CNN
+F 3 "" H 2400 900 50  0001 C CNN
+	1    2400 900 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1450 1300 2200 1300
-Wire Wire Line
-	2200 900  2200 1300
+	2400 900  2400 1300
 Text Label 1700 1200 0    50   ~ 0
 BA1
 Text Label 1700 1500 0    50   ~ 0
@@ -96,7 +94,7 @@ BA19
 Text Label 1700 3300 0    50   ~ 0
 BA20
 $Comp
-L power:GND #PWR0104
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0104
 U 1 1 60486147
 P 2300 3750
 F 0 "#PWR0104" H 2300 3500 50  0001 C CNN
@@ -194,21 +192,10 @@ Text Label 1700 6100 0    50   ~ 0
 NBLD
 Wire Wire Line
 	1450 6000 1900 6000
-$Comp
-L power:+5V #PWR0107
-U 1 1 6049A7D5
-P 2100 5500
-F 0 "#PWR0107" H 2100 5350 50  0001 C CNN
-F 1 "+5V" H 2115 5673 50  0000 C CNN
-F 2 "" H 2100 5500 50  0001 C CNN
-F 3 "" H 2100 5500 50  0001 C CNN
-	1    2100 5500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2300 7300 2300 7350
 $Comp
-L power:GND #PWR0108
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0108
 U 1 1 604A01B7
 P 2300 7350
 F 0 "#PWR0108" H 2300 7100 50  0001 C CNN
@@ -223,8 +210,6 @@ Wire Wire Line
 Wire Wire Line
 	2300 7000 2300 7300
 Connection ~ 2300 7300
-Wire Wire Line
-	1450 7100 2100 7100
 Text Label 1700 6000 0    50   ~ 0
 NBUD
 Wire Wire Line
@@ -234,7 +219,7 @@ NBDTACK
 Text Label 1650 6500 0    50   ~ 0
 NBIMA
 $Comp
-L tinkerforge:74LVC245 U2
+L IPCMemoryExpansionBoard-rescue:74LVC245-tinkerforge U2
 U 1 1 604ABED1
 P 4200 1250
 F 0 "U2" H 4200 1947 60  0000 C CNN
@@ -245,7 +230,7 @@ F 3 "" H 4200 1250 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L tinkerforge:74LVC245 U3
+L IPCMemoryExpansionBoard-rescue:74LVC245-tinkerforge U3
 U 1 1 604ABF9B
 P 4200 2600
 F 0 "U3" H 4200 3297 60  0000 C CNN
@@ -256,7 +241,7 @@ F 3 "" H 4200 2600 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L tinkerforge:74LVC245 U1
+L IPCMemoryExpansionBoard-rescue:74LVC245-tinkerforge U1
 U 1 1 604ABFD9
 P 4200 3950
 F 0 "U1" H 4200 4647 60  0000 C CNN
@@ -267,7 +252,7 @@ F 3 "" H 4200 3950 60  0000 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L tinkerforge:74LVC245 U4
+L IPCMemoryExpansionBoard-rescue:74LVC245-tinkerforge U4
 U 1 1 604AC00D
 P 4200 5250
 F 0 "U4" H 4200 5947 60  0000 C CNN
@@ -275,10 +260,10 @@ F 1 "74LVC245" H 4200 5841 60  0000 C CNN
 F 2 "Package_DIP:DIP-20_W7.62mm" H 4200 5250 60  0001 C CNN
 F 3 "" H 4200 5250 60  0000 C CNN
 	1    4200 5250
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 $Comp
-L tinkerforge:74LVC245 U5
+L IPCMemoryExpansionBoard-rescue:74LVC245-tinkerforge U5
 U 1 1 604AC049
 P 4200 6550
 F 0 "U5" H 4200 7247 60  0000 C CNN
@@ -286,7 +271,7 @@ F 1 "74LVC245" H 4200 7141 60  0000 C CNN
 F 2 "Package_DIP:DIP-20_W7.62mm" H 4200 6550 60  0001 C CNN
 F 3 "" H 4200 6550 60  0000 C CNN
 	1    4200 6550
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 $Comp
 L IPCMemoryExpansionBoard:SST39VF3201C U7
@@ -311,7 +296,7 @@ F 3 "" H 7450 5900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MCU_ST_STM32F4:STM32F407ZETx U9
+L IPCMemoryExpansionBoard-rescue:STM32F407ZETx-MCU_ST_STM32F4 U9
 U 1 1 604AC346
 P 13100 4450
 F 0 "U9" H 13100 764 50  0000 C CNN
@@ -333,7 +318,7 @@ F 3 "" H 4800 9000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Micro_SD_Card_Det_Hirose_DM3AT J2
+L IPCMemoryExpansionBoard-rescue:Micro_SD_Card_Det_Hirose_DM3AT-Connector J2
 U 1 1 604AC7DE
 P 14850 9000
 F 0 "J2" H 14800 9817 50  0000 C CNN
@@ -495,7 +480,7 @@ NoConn ~ 1450 5900
 NoConn ~ 1450 6300
 NoConn ~ 1450 6200
 $Comp
-L 74xx:74LS38 U11
+L IPCMemoryExpansionBoard-rescue:74LS38-74xx U11
 U 1 1 606B831C
 P 2650 6700
 F 0 "U11" H 2650 6383 50  0000 C CNN
@@ -506,7 +491,7 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS38" H 2650 6700 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L 74xx:74LS38 U11
+L IPCMemoryExpansionBoard-rescue:74LS38-74xx U11
 U 2 1 606B8392
 P 2650 6150
 F 0 "U11" H 2650 5833 50  0000 C CNN
@@ -540,8 +525,6 @@ Text Label 3050 6800 0    50   ~ 0
 IMA
 Wire Wire Line
 	2450 1200 2450 1000
-Wire Wire Line
-	1450 1200 2450 1200
 Wire Wire Line
 	2500 1400 2500 1200
 Wire Wire Line
@@ -684,11 +667,7 @@ Wire Wire Line
 Wire Wire Line
 	2650 4400 3850 4400
 Wire Wire Line
-	1450 5700 2650 5700
-Wire Wire Line
 	3850 4800 3750 4800
-Wire Wire Line
-	3850 4900 3450 4900
 Wire Wire Line
 	3850 5000 3450 5000
 Wire Wire Line
@@ -704,11 +683,9 @@ Wire Wire Line
 Wire Wire Line
 	3850 5600 3450 5600
 Wire Wire Line
-	1450 6400 2200 6400
+	3850 5700 3450 5700
 Wire Wire Line
 	1450 6500 2200 6500
-Wire Wire Line
-	3850 6200 3450 6200
 Wire Wire Line
 	3850 6300 3450 6300
 Wire Wire Line
@@ -723,40 +700,42 @@ Wire Wire Line
 	3850 6800 3450 6800
 Wire Wire Line
 	3850 6900 3450 6900
-Text Label 3500 4900 0    50   ~ 0
-BD0
+Wire Wire Line
+	3850 7000 3450 7000
 Text Label 3500 5000 0    50   ~ 0
-BD1
+BD0
 Text Label 3500 5100 0    50   ~ 0
-BD2
+BD1
 Text Label 3500 5200 0    50   ~ 0
-BD3
+BD2
 Text Label 3500 5300 0    50   ~ 0
-BD4
+BD3
 Text Label 3500 5400 0    50   ~ 0
-BD5
+BD4
 Text Label 3500 5500 0    50   ~ 0
-BD6
+BD5
 Text Label 3500 5600 0    50   ~ 0
+BD6
+Text Label 3500 5700 0    50   ~ 0
 BD7
-Text Label 3500 6200 0    50   ~ 0
-BD8
 Text Label 3500 6300 0    50   ~ 0
-BD9
+BD8
 Text Label 3500 6400 0    50   ~ 0
-BD10
+BD9
 Text Label 3500 6500 0    50   ~ 0
-BD11
+BD10
 Text Label 3500 6600 0    50   ~ 0
-BD12
+BD11
 Text Label 3500 6700 0    50   ~ 0
-BD13
+BD12
 Text Label 3500 6800 0    50   ~ 0
-BD14
+BD13
 Text Label 3500 6900 0    50   ~ 0
+BD14
+Text Label 3500 7000 0    50   ~ 0
 BD15
 $Comp
-L tinkerforge:74LVC245 U10
+L IPCMemoryExpansionBoard-rescue:74LVC245-tinkerforge U10
 U 1 1 608AB467
 P 2050 8550
 F 0 "U10" H 2050 9247 60  0000 C CNN
@@ -782,24 +761,24 @@ Wire Wire Line
 	2400 8400 2800 8400
 Wire Wire Line
 	2400 8500 2800 8500
-Text Label 1350 8300 0    50   ~ 0
-NBLD
-Text Label 1350 8400 0    50   ~ 0
-NBUD
 Text Label 1350 8500 0    50   ~ 0
-BRNW
+NBLD
 Text Label 1350 8600 0    50   ~ 0
+NBUD
+Text Label 1350 8400 0    50   ~ 0
+BRNW
+Text Label 1350 8300 0    50   ~ 0
 BNPS
-Text Label 2500 8200 0    50   ~ 0
-NLD
-Text Label 2500 8300 0    50   ~ 0
-NUD
 Text Label 2500 8400 0    50   ~ 0
-RNW
+NLD
 Text Label 2500 8500 0    50   ~ 0
+NUD
+Text Label 2500 8300 0    50   ~ 0
+RNW
+Text Label 2500 8200 0    50   ~ 0
 NPS
 $Comp
-L power:GND #PWR0103
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0103
 U 1 1 609732BE
 P 2700 9150
 F 0 "#PWR0103" H 2700 8900 50  0001 C CNN
@@ -823,7 +802,7 @@ Wire Wire Line
 Wire Wire Line
 	2700 9000 2700 9150
 $Comp
-L power:GND #PWR0105
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0105
 U 1 1 6099B207
 P 1650 9100
 F 0 "#PWR0105" H 1650 8850 50  0001 C CNN
@@ -850,6 +829,8 @@ Wire Wire Line
 Wire Wire Line
 	4550 4300 4600 4300
 Wire Wire Line
+	4550 4900 4850 4900
+Wire Wire Line
 	4550 5000 4850 5000
 Wire Wire Line
 	4550 5100 4850 5100
@@ -864,7 +845,7 @@ Wire Wire Line
 Wire Wire Line
 	4550 5600 4850 5600
 Wire Wire Line
-	4550 5700 4850 5700
+	4550 6200 4850 6200
 Wire Wire Line
 	4550 6300 4850 6300
 Wire Wire Line
@@ -879,39 +860,37 @@ Wire Wire Line
 	4550 6800 4850 6800
 Wire Wire Line
 	4550 6900 4850 6900
-Wire Wire Line
-	4550 7000 4850 7000
-Text Label 4600 6300 0    50   ~ 0
+Text Label 4600 6200 0    50   ~ 0
 D8
-Text Label 4600 6400 0    50   ~ 0
+Text Label 4600 6300 0    50   ~ 0
 D9
-Text Label 4600 6500 0    50   ~ 0
+Text Label 4600 6400 0    50   ~ 0
 D10
-Text Label 4600 6600 0    50   ~ 0
+Text Label 4600 6500 0    50   ~ 0
 D11
-Text Label 4600 6700 0    50   ~ 0
+Text Label 4600 6600 0    50   ~ 0
 D12
-Text Label 4600 6800 0    50   ~ 0
+Text Label 4600 6700 0    50   ~ 0
 D13
-Text Label 4600 6900 0    50   ~ 0
+Text Label 4600 6800 0    50   ~ 0
 D14
-Text Label 4600 7000 0    50   ~ 0
+Text Label 4600 6900 0    50   ~ 0
 D15
-Text Label 4650 5000 0    50   ~ 0
+Text Label 4650 4900 0    50   ~ 0
 D0
-Text Label 4650 5100 0    50   ~ 0
+Text Label 4650 5000 0    50   ~ 0
 D1
-Text Label 4650 5200 0    50   ~ 0
+Text Label 4650 5100 0    50   ~ 0
 D2
-Text Label 4650 5300 0    50   ~ 0
+Text Label 4650 5200 0    50   ~ 0
 D3
-Text Label 4650 5400 0    50   ~ 0
+Text Label 4650 5300 0    50   ~ 0
 D4
-Text Label 4650 5500 0    50   ~ 0
+Text Label 4650 5400 0    50   ~ 0
 D5
-Text Label 4650 5600 0    50   ~ 0
+Text Label 4650 5500 0    50   ~ 0
 D6
-Text Label 4650 5700 0    50   ~ 0
+Text Label 4650 5600 0    50   ~ 0
 D7
 Wire Wire Line
 	6550 5800 6850 5800
@@ -1295,13 +1274,7 @@ Text Label 6600 7200 0    50   ~ 0
 NLD
 Text Label 6600 7100 0    50   ~ 0
 NUD
-Wire Wire Line
-	4550 6200 4850 6200
-Wire Wire Line
-	4550 4900 4850 4900
-Text Label 4600 4900 0    50   ~ 0
-OE245
-Text Label 4600 6200 0    50   ~ 0
+Text Label 3500 4900 0    50   ~ 0
 OE245
 Wire Wire Line
 	6800 3050 6400 3050
@@ -1330,7 +1303,7 @@ NWE
 Text Label 6400 3550 0    50   ~ 0
 FLASH_RY
 $Comp
-L power:+3.3V #PWR0106
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0106
 U 1 1 60D8A499
 P 7450 4550
 F 0 "#PWR0106" H 7450 4400 50  0001 C CNN
@@ -1341,7 +1314,7 @@ F 3 "" H 7450 4550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C5
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C5
 U 1 1 60D8A607
 P 8150 4650
 F 0 "C5" H 8242 4696 50  0000 L CNN
@@ -1352,7 +1325,7 @@ F 3 "~" H 8150 4650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0109
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0109
 U 1 1 60D8A76E
 P 8150 4750
 F 0 "#PWR0109" H 8150 4500 50  0001 C CNN
@@ -1368,7 +1341,7 @@ Wire Wire Line
 	7450 4700 7450 4550
 Connection ~ 7450 4550
 $Comp
-L power:+3.3V #PWR0110
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0110
 U 1 1 60DCF6F7
 P 6300 6850
 F 0 "#PWR0110" H 6300 6700 50  0001 C CNN
@@ -1383,7 +1356,7 @@ Wire Wire Line
 Wire Wire Line
 	6300 7000 6850 7000
 $Comp
-L power:+3.3V #PWR0111
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0111
 U 1 1 60DF258F
 P 8600 7000
 F 0 "#PWR0111" H 8600 6850 50  0001 C CNN
@@ -1398,7 +1371,7 @@ Wire Wire Line
 Wire Wire Line
 	8600 7200 8600 7000
 $Comp
-L power:GND #PWR0112
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0112
 U 1 1 60E15339
 P 7450 7600
 F 0 "#PWR0112" H 7450 7350 50  0001 C CNN
@@ -1414,7 +1387,7 @@ Wire Wire Line
 	7350 7500 7450 7500
 Connection ~ 7450 7500
 $Comp
-L power:GND #PWR0113
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0113
 U 1 1 60E5B279
 P 7650 4150
 F 0 "#PWR0113" H 7650 3900 50  0001 C CNN
@@ -1432,7 +1405,7 @@ Connection ~ 7500 4100
 Wire Wire Line
 	7500 4100 7400 4100
 $Comp
-L power:+3.3V #PWR0114
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0114
 U 1 1 60E7E7C4
 P 8650 700
 F 0 "#PWR0114" H 8650 550 50  0001 C CNN
@@ -1445,7 +1418,7 @@ $EndComp
 Wire Wire Line
 	8650 700  7400 700 
 $Comp
-L Device:C_Small C7
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C7
 U 1 1 60EA24F2
 P 8650 800
 F 0 "C7" H 8742 846 50  0000 L CNN
@@ -1457,7 +1430,7 @@ F 3 "~" H 8650 800 50  0001 C CNN
 $EndComp
 Connection ~ 8650 700 
 $Comp
-L power:GND #PWR0115
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0115
 U 1 1 60EA2568
 P 8650 900
 F 0 "#PWR0115" H 8650 650 50  0001 C CNN
@@ -1468,7 +1441,7 @@ F 3 "" H 8650 900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR0116
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0116
 U 1 1 60EA25C9
 P 6150 3200
 F 0 "#PWR0116" H 6150 3050 50  0001 C CNN
@@ -1483,7 +1456,7 @@ Wire Wire Line
 Wire Wire Line
 	6150 3350 6150 3200
 $Comp
-L power:GND #PWR0117
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0117
 U 1 1 60EC679F
 P 4600 1750
 F 0 "#PWR0117" H 4600 1500 50  0001 C CNN
@@ -1494,7 +1467,7 @@ F 3 "" H 4600 1750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0118
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0118
 U 1 1 60EC67DD
 P 4600 3100
 F 0 "#PWR0118" H 4600 2850 50  0001 C CNN
@@ -1523,7 +1496,7 @@ Wire Wire Line
 	4600 2150 4550 2150
 Connection ~ 4600 3050
 $Comp
-L power:+3.3V #PWR0119
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0119
 U 1 1 60F5A6E8
 P 3750 700
 F 0 "#PWR0119" H 3750 550 50  0001 C CNN
@@ -1562,7 +1535,7 @@ Wire Wire Line
 	3650 3600 3650 2250
 Connection ~ 3650 2250
 $Comp
-L power:GND #PWR0120
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0120
 U 1 1 61044D61
 P 4600 4450
 F 0 "#PWR0120" H 4600 4200 50  0001 C CNN
@@ -1588,7 +1561,7 @@ Wire Wire Line
 Text Label 3250 900  0    50   ~ 0
 OE245
 $Comp
-L Device:C_Small C2
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C2
 U 1 1 61096C8E
 P 6800 8150
 F 0 "C2" H 6892 8196 50  0000 L CNN
@@ -1599,7 +1572,7 @@ F 3 "~" H 6800 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C3
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C3
 U 1 1 61097160
 P 7150 8150
 F 0 "C3" H 7242 8196 50  0000 L CNN
@@ -1610,7 +1583,7 @@ F 3 "~" H 7150 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C6
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C6
 U 1 1 610971A4
 P 7500 8150
 F 0 "C6" H 7592 8196 50  0000 L CNN
@@ -1621,18 +1594,18 @@ F 3 "~" H 7500 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C8
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C8
 U 1 1 610971E6
-P 7850 8150
-F 0 "C8" H 7942 8196 50  0000 L CNN
-F 1 "100n" H 7942 8105 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7850 8150 50  0001 C CNN
-F 3 "~" H 7850 8150 50  0001 C CNN
-	1    7850 8150
+P 5800 10250
+F 0 "C8" H 5892 10296 50  0000 L CNN
+F 1 "100n" H 5892 10205 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 5800 10250 50  0001 C CNN
+F 3 "~" H 5800 10250 50  0001 C CNN
+	1    5800 10250
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C9
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C9
 U 1 1 61097228
 P 8200 8150
 F 0 "C9" H 8292 8196 50  0000 L CNN
@@ -1643,18 +1616,18 @@ F 3 "~" H 8200 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C11
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C11
 U 1 1 61097270
-P 8500 8150
-F 0 "C11" H 8592 8196 50  0000 L CNN
-F 1 "100n" H 8592 8105 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 8500 8150 50  0001 C CNN
-F 3 "~" H 8500 8150 50  0001 C CNN
-	1    8500 8150
+P 7850 8150
+F 0 "C11" H 7942 8196 50  0000 L CNN
+F 1 "100n" H 7942 8105 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7850 8150 50  0001 C CNN
+F 3 "~" H 7850 8150 50  0001 C CNN
+	1    7850 8150
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C12
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C12
 U 1 1 610972CF
 P 8800 8150
 F 0 "C12" H 8892 8196 50  0000 L CNN
@@ -1665,7 +1638,7 @@ F 3 "~" H 8800 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C13
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C13
 U 1 1 61097317
 P 9150 8150
 F 0 "C13" H 9242 8196 50  0000 L CNN
@@ -1676,7 +1649,7 @@ F 3 "~" H 9150 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C1
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C1
 U 1 1 61097365
 P 6450 8150
 F 0 "C1" H 6542 8196 50  0000 L CNN
@@ -1687,7 +1660,7 @@ F 3 "~" H 6450 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C14
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C14
 U 1 1 610973B5
 P 9450 8150
 F 0 "C14" H 9542 8196 50  0000 L CNN
@@ -1712,11 +1685,6 @@ Connection ~ 7850 8050
 Wire Wire Line
 	7850 8050 8200 8050
 Connection ~ 8200 8050
-Wire Wire Line
-	8200 8050 8500 8050
-Connection ~ 8500 8050
-Wire Wire Line
-	8500 8050 8800 8050
 Connection ~ 8800 8050
 Wire Wire Line
 	8800 8050 9150 8050
@@ -1737,20 +1705,13 @@ Wire Wire Line
 Connection ~ 7850 8250
 Wire Wire Line
 	7850 8250 8200 8250
-Connection ~ 8200 8250
-Wire Wire Line
-	8200 8250 8500 8250
-Connection ~ 8500 8250
-Wire Wire Line
-	8500 8250 8800 8250
-Connection ~ 8800 8250
 Wire Wire Line
 	8800 8250 9150 8250
 Connection ~ 9150 8250
 Wire Wire Line
 	9150 8250 9450 8250
 $Comp
-L power:GND #PWR0121
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0121
 U 1 1 610EC444
 P 7850 8250
 F 0 "#PWR0121" H 7850 8000 50  0001 C CNN
@@ -1761,7 +1722,7 @@ F 3 "" H 7850 8250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR0122
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0122
 U 1 1 610EC485
 P 7850 8050
 F 0 "#PWR0122" H 7850 7900 50  0001 C CNN
@@ -1772,7 +1733,7 @@ F 3 "" H 7850 8050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0123
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0123
 U 1 1 610EC65D
 P 4650 10650
 F 0 "#PWR0123" H 4650 10400 50  0001 C CNN
@@ -1797,7 +1758,7 @@ Wire Wire Line
 	4950 10550 4950 10450
 Connection ~ 4750 10550
 $Comp
-L power:+3.3V #PWR0124
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0124
 U 1 1 61175EBD
 P 4900 7400
 F 0 "#PWR0124" H 4900 7250 50  0001 C CNN
@@ -1826,83 +1787,49 @@ Wire Wire Line
 Wire Wire Line
 	4600 7450 4600 7550
 Connection ~ 4700 7450
-NoConn ~ 1700 8700
-NoConn ~ 1700 8800
-NoConn ~ 1700 8900
-NoConn ~ 1700 9000
 NoConn ~ 2400 8900
 NoConn ~ 2400 8800
 NoConn ~ 2400 8700
 NoConn ~ 2400 8600
 $Comp
-L power:GND #PWR0125
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0125
 U 1 1 613AD9B1
-P 3800 7050
-F 0 "#PWR0125" H 3800 6800 50  0001 C CNN
-F 1 "GND" H 3805 6877 50  0000 C CNN
-F 2 "" H 3800 7050 50  0001 C CNN
-F 3 "" H 3800 7050 50  0001 C CNN
-	1    3800 7050
+P 4600 7100
+F 0 "#PWR0125" H 4600 6850 50  0001 C CNN
+F 1 "GND" H 4605 6927 50  0000 C CNN
+F 2 "" H 4600 7100 50  0001 C CNN
+F 3 "" H 4600 7100 50  0001 C CNN
+	1    4600 7100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3800 7050 3800 7000
-Wire Wire Line
-	3800 7000 3850 7000
 $Comp
-L power:+3.3V #PWR0126
-U 1 1 613DD8D9
-P 4650 6000
-F 0 "#PWR0126" H 4650 5850 50  0001 C CNN
-F 1 "+3.3V" H 4665 6173 50  0000 C CNN
-F 2 "" H 4650 6000 50  0001 C CNN
-F 3 "" H 4650 6000 50  0001 C CNN
-	1    4650 6000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4550 6100 4650 6100
-Wire Wire Line
-	4650 6100 4650 6000
-Wire Wire Line
-	3850 6100 3750 6100
-Wire Wire Line
-	3750 6100 3750 4800
-Connection ~ 3750 6100
-Wire Wire Line
-	3450 6100 3750 6100
-$Comp
-L power:GND #PWR0127
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0127
 U 1 1 6150366B
-P 3850 5750
-F 0 "#PWR0127" H 3850 5500 50  0001 C CNN
-F 1 "GND" H 3855 5577 50  0000 C CNN
-F 2 "" H 3850 5750 50  0001 C CNN
-F 3 "" H 3850 5750 50  0001 C CNN
-	1    3850 5750
+P 5050 5750
+F 0 "#PWR0127" H 5050 5500 50  0001 C CNN
+F 1 "GND" H 5055 5577 50  0000 C CNN
+F 2 "" H 5050 5750 50  0001 C CNN
+F 3 "" H 5050 5750 50  0001 C CNN
+	1    5050 5750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3850 5750 3850 5700
 $Comp
-L power:+3.3V #PWR0128
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0128
 U 1 1 61534ACF
-P 4800 4650
-F 0 "#PWR0128" H 4800 4500 50  0001 C CNN
-F 1 "+3.3V" H 4815 4823 50  0000 C CNN
-F 2 "" H 4800 4650 50  0001 C CNN
-F 3 "" H 4800 4650 50  0001 C CNN
-	1    4800 4650
+P 3750 4650
+F 0 "#PWR0128" H 3750 4500 50  0001 C CNN
+F 1 "+3.3V" H 3765 4823 50  0000 C CNN
+F 2 "" H 3750 4650 50  0001 C CNN
+F 3 "" H 3750 4650 50  0001 C CNN
+	1    3750 4650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4550 4800 4800 4800
-Wire Wire Line
-	4800 4800 4800 4650
-Text Label 3500 6100 0    50   ~ 0
+	3750 4800 3750 4650
+Text Label 4900 4800 0    50   ~ 0
 RNW
 $Comp
-L Switch:SW_DIP_x08 SW1
+L IPCMemoryExpansionBoard-rescue:SW_DIP_x08-Switch SW1
 U 1 1 61598D25
 P 7150 9450
 F 0 "SW1" H 7150 10117 50  0000 C CNN
@@ -1952,7 +1879,7 @@ Connection ~ 6750 9150
 Wire Wire Line
 	6750 9150 6750 9250
 $Comp
-L power:GND #PWR0129
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0129
 U 1 1 61734024
 P 6750 9850
 F 0 "#PWR0129" H 6750 9600 50  0001 C CNN
@@ -1991,7 +1918,7 @@ DIPSW4
 Text Label 7500 9550 0    50   ~ 0
 DIPSW5
 $Comp
-L Regulator_Linear:AMS1117-3.3 U13
+L IPCMemoryExpansionBoard-rescue:AMS1117-3.3-Regulator_Linear U13
 U 1 1 618E4124
 P 8650 10300
 F 0 "U13" H 8650 10542 50  0000 C CNN
@@ -2002,7 +1929,7 @@ F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 8750 10050 50  0001 C 
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP_Small C10
+L IPCMemoryExpansionBoard-rescue:CP_Small-Device C10
 U 1 1 618E42A5
 P 9150 10450
 F 0 "C10" H 9238 10496 50  0000 L CNN
@@ -2013,7 +1940,7 @@ F 3 "~" H 9150 10450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP_Small C4
+L IPCMemoryExpansionBoard-rescue:CP_Small-Device C4
 U 1 1 618E4319
 P 7950 10450
 F 0 "C4" H 8038 10496 50  0000 L CNN
@@ -2028,7 +1955,7 @@ Wire Wire Line
 Wire Wire Line
 	7950 10300 7950 10350
 $Comp
-L power:GND #PWR02
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR02
 U 1 1 6191B9BB
 P 7950 10600
 F 0 "#PWR02" H 7950 10350 50  0001 C CNN
@@ -2039,7 +1966,7 @@ F 3 "" H 7950 10600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR03
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR03
 U 1 1 6191BA04
 P 8650 10650
 F 0 "#PWR03" H 8650 10400 50  0001 C CNN
@@ -2050,7 +1977,7 @@ F 3 "" H 8650 10650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR05
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR05
 U 1 1 6191BA4D
 P 9150 10600
 F 0 "#PWR05" H 9150 10350 50  0001 C CNN
@@ -2071,7 +1998,7 @@ Wire Wire Line
 Wire Wire Line
 	7950 10600 7950 10550
 $Comp
-L power:+5V #PWR01
+L IPCMemoryExpansionBoard-rescue:+5V-power #PWR01
 U 1 1 619FA95B
 P 7950 10300
 F 0 "#PWR01" H 7950 10150 50  0001 C CNN
@@ -2083,7 +2010,7 @@ F 3 "" H 7950 10300 50  0001 C CNN
 $EndComp
 Connection ~ 7950 10300
 $Comp
-L power:+3.3V #PWR04
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR04
 U 1 1 619FAABB
 P 9150 10300
 F 0 "#PWR04" H 9150 10150 50  0001 C CNN
@@ -2095,7 +2022,7 @@ F 3 "" H 9150 10300 50  0001 C CNN
 $EndComp
 Connection ~ 9150 10300
 $Comp
-L power:+3.3V #PWR0130
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0130
 U 1 1 61A32FCE
 P 1600 8000
 F 0 "#PWR0130" H 1600 7850 50  0001 C CNN
@@ -2118,7 +2045,7 @@ NoConn ~ 1450 6900
 NoConn ~ 1450 7200
 NoConn ~ 1450 1100
 $Comp
-L Connector_Generic:Conn_02x07_Odd_Even J4
+L IPCMemoryExpansionBoard-rescue:Conn_02x07_Odd_Even-Connector_Generic J4
 U 1 1 61BFBDDB
 P 1850 10050
 F 0 "J4" H 1900 10567 50  0000 C CNN
@@ -2129,7 +2056,7 @@ F 3 "~" H 1850 10050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0131
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0131
 U 1 1 61BFBEEF
 P 1550 10450
 F 0 "#PWR0131" H 1550 10200 50  0001 C CNN
@@ -2186,7 +2113,7 @@ NoConn ~ 2150 10350
 Wire Wire Line
 	2150 9750 2500 9750
 $Comp
-L power:+3.3V #PWR0132
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0132
 U 1 1 61F56D28
 P 2500 9750
 F 0 "#PWR0132" H 2500 9600 50  0001 C CNN
@@ -2217,7 +2144,7 @@ Wire Wire Line
 Wire Wire Line
 	13950 8600 13600 8600
 $Comp
-L power:GND #PWR08
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR08
 U 1 1 621E50F8
 P 15800 9600
 F 0 "#PWR08" H 15800 9350 50  0001 C CNN
@@ -2236,7 +2163,7 @@ Wire Wire Line
 Wire Wire Line
 	11800 9250 12100 9250
 $Comp
-L power:GND #PWR06
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR06
 U 1 1 6237B8E1
 P 11400 9650
 F 0 "#PWR06" H 11400 9400 50  0001 C CNN
@@ -2256,7 +2183,7 @@ Connection ~ 11400 9600
 Wire Wire Line
 	11400 9600 11400 9550
 $Comp
-L power:+5V #PWR07
+L IPCMemoryExpansionBoard-rescue:+5V-power #PWR07
 U 1 1 624041E5
 P 12200 8900
 F 0 "#PWR07" H 12200 8750 50  0001 C CNN
@@ -2268,10 +2195,8 @@ F 3 "" H 12200 8900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	12200 8950 12200 8900
-Wire Wire Line
-	11800 8950 12200 8950
 $Comp
-L Device:C_Small C15
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C15
 U 1 1 6248E320
 P 9800 8150
 F 0 "C15" H 9892 8196 50  0000 L CNN
@@ -2282,7 +2207,7 @@ F 3 "~" H 9800 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C16
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C16
 U 1 1 6248E384
 P 10100 8150
 F 0 "C16" H 10192 8196 50  0000 L CNN
@@ -2293,7 +2218,7 @@ F 3 "~" H 10100 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C17
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C17
 U 1 1 6248E3E2
 P 10400 8150
 F 0 "C17" H 10492 8196 50  0000 L CNN
@@ -2304,7 +2229,7 @@ F 3 "~" H 10400 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C18
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C18
 U 1 1 6248E448
 P 10700 8150
 F 0 "C18" H 10792 8196 50  0000 L CNN
@@ -2315,7 +2240,7 @@ F 3 "~" H 10700 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C19
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C19
 U 1 1 6248E4AC
 P 11000 8150
 F 0 "C19" H 11092 8196 50  0000 L CNN
@@ -2326,7 +2251,7 @@ F 3 "~" H 11000 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C20
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C20
 U 1 1 6248E539
 P 11300 8150
 F 0 "C20" H 11392 8196 50  0000 L CNN
@@ -2337,7 +2262,7 @@ F 3 "~" H 11300 8150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C21
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C21
 U 1 1 6248E59F
 P 11550 8150
 F 0 "C21" H 11642 8196 50  0000 L CNN
@@ -2390,7 +2315,7 @@ Connection ~ 11300 8250
 Wire Wire Line
 	11300 8250 11550 8250
 $Comp
-L power:GND #PWR0133
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0133
 U 1 1 6251A715
 P 13400 9700
 F 0 "#PWR0133" H 13400 9450 50  0001 C CNN
@@ -2405,7 +2330,7 @@ Wire Wire Line
 Wire Wire Line
 	13400 9100 13950 9100
 $Comp
-L power:+3.3V #PWR0134
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0134
 U 1 1 62563A62
 P 13400 8500
 F 0 "#PWR0134" H 13400 8350 50  0001 C CNN
@@ -2422,7 +2347,7 @@ Wire Wire Line
 NoConn ~ 13950 9400
 NoConn ~ 13950 9500
 $Comp
-L Connector_Generic:Conn_02x10_Odd_Even J5
+L IPCMemoryExpansionBoard-rescue:Conn_02x10_Odd_Even-Connector_Generic J5
 U 1 1 6263E585
 P 10500 6100
 F 0 "J5" H 10550 6717 50  0000 C CNN
@@ -2433,7 +2358,7 @@ F 3 "~" H 10500 6100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0135
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0135
 U 1 1 6263E736
 P 10900 6700
 F 0 "#PWR0135" H 10900 6450 50  0001 C CNN
@@ -2488,7 +2413,7 @@ Connection ~ 10900 6600
 Wire Wire Line
 	10900 6600 10900 6500
 $Comp
-L power:+3.3V #PWR0136
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0136
 U 1 1 62A5851F
 P 10050 5600
 F 0 "#PWR0136" H 10050 5450 50  0001 C CNN
@@ -2499,7 +2424,7 @@ F 3 "" H 10050 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR0137
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0137
 U 1 1 62A585CA
 P 11000 5600
 F 0 "#PWR0137" H 11000 5450 50  0001 C CNN
@@ -2523,7 +2448,7 @@ STM32_TMS
 Text Label 9650 6100 0    50   ~ 0
 STM32_TCK
 $Comp
-L power:GND #PWR0138
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0138
 U 1 1 62E46D4F
 P 11100 1350
 F 0 "#PWR0138" H 11100 1100 50  0001 C CNN
@@ -2534,7 +2459,7 @@ F 3 "" H 11100 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R1
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R1
 U 1 1 62E47085
 P 11100 950
 F 0 "R1" H 11159 996 50  0000 L CNN
@@ -2550,7 +2475,7 @@ Wire Wire Line
 	11900 1150 11100 1150
 Connection ~ 11100 1150
 $Comp
-L Device:D_Small_ALT D1
+L IPCMemoryExpansionBoard-rescue:D_Small_ALT-Device D1
 U 1 1 62EE1EEE
 P 10800 1150
 F 0 "D1" H 10800 1355 50  0000 C CNN
@@ -2567,7 +2492,7 @@ Wire Wire Line
 Text Label 10200 1150 0    50   ~ 0
 NRESET
 $Comp
-L power:+3.3V #PWR0139
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0139
 U 1 1 62F7E07B
 P 11100 850
 F 0 "#PWR0139" H 11100 700 50  0001 C CNN
@@ -2584,7 +2509,7 @@ Wire Wire Line
 Text Label 9650 6400 0    50   ~ 0
 STM32_RESET
 $Comp
-L power:+3.3V #PWR0140
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0140
 U 1 1 62FCE09F
 P 13100 750
 F 0 "#PWR0140" H 13100 600 50  0001 C CNN
@@ -2635,7 +2560,7 @@ Wire Wire Line
 Wire Wire Line
 	13100 850  13100 750 
 $Comp
-L power:GND #PWR0141
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0141
 U 1 1 6306F79A
 P 12700 8250
 F 0 "#PWR0141" H 12700 8000 50  0001 C CNN
@@ -2675,40 +2600,40 @@ Connection ~ 13500 8050
 Wire Wire Line
 	13500 8050 13600 8050
 $Comp
-L Device:LED_ALT D2
+L IPCMemoryExpansionBoard-rescue:LED_ALT-Device D2
 U 1 1 63115F60
 P 9450 8700
 F 0 "D2" H 9441 8916 50  0000 C CNN
 F 1 "GREEN" H 9441 8825 50  0000 C CNN
-F 2 "LED_THT:LED_D5.0mm_Horizontal_O1.27mm_Z3.0mm" H 9450 8700 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm" H 9450 8700 50  0001 C CNN
 F 3 "~" H 9450 8700 50  0001 C CNN
 	1    9450 8700
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED_ALT D3
+L IPCMemoryExpansionBoard-rescue:LED_ALT-Device D3
 U 1 1 63116076
 P 9450 9100
 F 0 "D3" H 9441 9316 50  0000 C CNN
 F 1 "YELLOW" H 9441 9225 50  0000 C CNN
-F 2 "LED_THT:LED_D5.0mm_Horizontal_O1.27mm_Z3.0mm" H 9450 9100 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm" H 9450 9100 50  0001 C CNN
 F 3 "~" H 9450 9100 50  0001 C CNN
 	1    9450 9100
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED_ALT D4
+L IPCMemoryExpansionBoard-rescue:LED_ALT-Device D4
 U 1 1 631160F0
 P 9450 9500
 F 0 "D4" H 9441 9716 50  0000 C CNN
 F 1 "RED" H 9441 9625 50  0000 C CNN
-F 2 "LED_THT:LED_D5.0mm_Horizontal_O1.27mm_Z3.0mm" H 9450 9500 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm" H 9450 9500 50  0001 C CNN
 F 3 "~" H 9450 9500 50  0001 C CNN
 	1    9450 9500
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_Small R2
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R2
 U 1 1 63116413
 P 9900 8700
 F 0 "R2" V 9704 8700 50  0000 C CNN
@@ -2719,7 +2644,7 @@ F 3 "~" H 9900 8700 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R_Small R3
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R3
 U 1 1 631164DB
 P 9900 9100
 F 0 "R3" V 9704 9100 50  0000 C CNN
@@ -2730,7 +2655,7 @@ F 3 "~" H 9900 9100 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R_Small R4
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R4
 U 1 1 63116557
 P 9900 9500
 F 0 "R4" V 9704 9500 50  0000 C CNN
@@ -2741,7 +2666,7 @@ F 3 "~" H 9900 9500 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:+3.3V #PWR09
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR09
 U 1 1 631165D5
 P 10250 8600
 F 0 "#PWR09" H 10250 8450 50  0001 C CNN
@@ -2787,8 +2712,6 @@ Text Label 7500 9650 0    50   ~ 0
 DIPSW6
 Text Label 7500 9750 0    50   ~ 0
 DIPSW7
-Wire Wire Line
-	2100 5500 2100 7100
 Wire Wire Line
 	11900 6550 11500 6550
 Wire Wire Line
@@ -2935,7 +2858,7 @@ Text Label 11450 3350 0    50   ~ 0
 A15
 NoConn ~ 11800 9350
 $Comp
-L Device:R_Small R12
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R12
 U 1 1 60724468
 P 12200 9150
 F 0 "R12" V 12100 9050 50  0000 C CNN
@@ -2946,7 +2869,7 @@ F 3 "~" H 12200 9150 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R_Small R13
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R13
 U 1 1 60724541
 P 12200 9250
 F 0 "R13" V 12100 9350 50  0000 C CNN
@@ -2975,7 +2898,7 @@ SDIO_D0
 Text Label 13600 9300 0    50   ~ 0
 SDIO_D1
 $Comp
-L Device:R_Small R15
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R15
 U 1 1 608BDB14
 P 14950 3050
 F 0 "R15" V 14754 3050 50  0000 C CNN
@@ -2988,7 +2911,7 @@ $EndComp
 Wire Wire Line
 	14850 3050 14300 3050
 $Comp
-L power:GND #PWR016
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR016
 U 1 1 60924704
 P 15100 3100
 F 0 "#PWR016" H 15100 2850 50  0001 C CNN
@@ -3003,7 +2926,7 @@ Wire Wire Line
 Wire Wire Line
 	15100 3050 15100 3100
 $Comp
-L Device:R_Small R11
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R11
 U 1 1 6098B7CA
 P 11600 1450
 F 0 "R11" V 11404 1450 50  0000 C CNN
@@ -3016,7 +2939,7 @@ $EndComp
 Wire Wire Line
 	11700 1450 11900 1450
 $Comp
-L power:GND #PWR014
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR014
 U 1 1 609F2F60
 P 11450 1500
 F 0 "#PWR014" H 11450 1250 50  0001 C CNN
@@ -3031,7 +2954,7 @@ Wire Wire Line
 Wire Wire Line
 	11450 1450 11450 1500
 $Comp
-L Device:Crystal_Small Y1
+L IPCMemoryExpansionBoard-rescue:Crystal_Small-Device Y1
 U 1 1 60AC2DA4
 P 11100 2600
 F 0 "Y1" V 11054 2688 50  0000 L CNN
@@ -3042,7 +2965,7 @@ F 3 "~" H 11100 2600 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R_Small R10
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R10
 U 1 1 60AC2E64
 P 10750 2600
 F 0 "R10" H 10691 2554 50  0000 R CNN
@@ -3071,7 +2994,7 @@ Connection ~ 11100 2700
 Wire Wire Line
 	11100 2700 11400 2700
 $Comp
-L Device:C_Small C24
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C24
 U 1 1 60BFF66E
 P 11100 2800
 F 0 "C24" H 11192 2846 50  0000 L CNN
@@ -3082,7 +3005,7 @@ F 3 "~" H 11100 2800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C23
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C23
 U 1 1 60BFF778
 P 10400 2600
 F 0 "C23" H 10492 2646 50  0000 L CNN
@@ -3093,7 +3016,7 @@ F 3 "~" H 10400 2600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR012
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR012
 U 1 1 60BFF9EF
 P 10400 2700
 F 0 "#PWR012" H 10400 2450 50  0001 C CNN
@@ -3104,7 +3027,7 @@ F 3 "" H 10400 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR013
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR013
 U 1 1 60BFFA6E
 P 11100 2900
 F 0 "#PWR013" H 11100 2650 50  0001 C CNN
@@ -3176,7 +3099,7 @@ STM32_TDI
 Text Label 9650 6300 0    50   ~ 0
 STM32_TDO
 $Comp
-L Device:R_Small R9
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R9
 U 1 1 615E8CAA
 P 9550 5500
 F 0 "R9" H 9491 5454 50  0000 R CNN
@@ -3187,7 +3110,7 @@ F 3 "~" H 9550 5500 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_Small R7
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R7
 U 1 1 615E8ED3
 P 9300 5500
 F 0 "R7" H 9241 5454 50  0000 R CNN
@@ -3198,7 +3121,7 @@ F 3 "~" H 9300 5500 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_Small R6
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R6
 U 1 1 615E8F61
 P 9050 5500
 F 0 "R6" H 8991 5454 50  0000 R CNN
@@ -3223,7 +3146,7 @@ Wire Wire Line
 Wire Wire Line
 	9050 6000 10300 6000
 $Comp
-L Device:R_Small R5
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R5
 U 1 1 6181FC7A
 P 8800 5500
 F 0 "R5" H 8741 5454 50  0000 R CNN
@@ -3238,7 +3161,7 @@ Wire Wire Line
 Wire Wire Line
 	8800 6300 10300 6300
 $Comp
-L Device:R_Small R8
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R8
 U 1 1 61891ABD
 P 9450 6650
 F 0 "R8" H 9391 6604 50  0000 R CNN
@@ -3253,7 +3176,7 @@ Wire Wire Line
 Wire Wire Line
 	9450 6100 10300 6100
 $Comp
-L power:+3.3V #PWR010
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR010
 U 1 1 61903B06
 P 9300 5200
 F 0 "#PWR010" H 9300 5050 50  0001 C CNN
@@ -3274,7 +3197,7 @@ Wire Wire Line
 Wire Wire Line
 	9300 5400 9300 5200
 $Comp
-L power:GND #PWR011
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR011
 U 1 1 619E8ECF
 P 9450 6900
 F 0 "#PWR011" H 9450 6650 50  0001 C CNN
@@ -3350,7 +3273,7 @@ Wire Wire Line
 Wire Wire Line
 	14300 2150 15200 2150
 $Comp
-L power:GND #PWR017
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR017
 U 1 1 623229A4
 P 15150 2350
 F 0 "#PWR017" H 15150 2100 50  0001 C CNN
@@ -3438,7 +3361,7 @@ ROMADR3
 Text Label 3350 8200 0    50   ~ 0
 DTACK
 $Comp
-L Device:C_Small C25
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C25
 U 1 1 606DFEB2
 P 11050 2050
 F 0 "C25" H 11142 2096 50  0000 L CNN
@@ -3449,7 +3372,7 @@ F 3 "~" H 11050 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0142
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0142
 U 1 1 606DFF86
 P 11050 2150
 F 0 "#PWR0142" H 11050 1900 50  0001 C CNN
@@ -3460,7 +3383,7 @@ F 3 "" H 11050 2150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C26
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C26
 U 1 1 606E00AC
 P 11400 2050
 F 0 "C26" H 11492 2096 50  0000 L CNN
@@ -3471,7 +3394,7 @@ F 3 "~" H 11400 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0143
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0143
 U 1 1 606E00B2
 P 11400 2150
 F 0 "#PWR0143" H 11400 1900 50  0001 C CNN
@@ -3498,7 +3421,7 @@ Wire Wire Line
 Wire Wire Line
 	11600 1750 11900 1750
 $Comp
-L power:+3.3V #PWR0144
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR0144
 U 1 1 60854B4D
 P 11800 1000
 F 0 "#PWR0144" H 11800 850 50  0001 C CNN
@@ -3513,7 +3436,7 @@ Wire Wire Line
 Wire Wire Line
 	11800 1250 11800 1000
 $Comp
-L Device:C_Small C22
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C22
 U 1 1 609CF7F2
 P 11100 1250
 F 0 "C22" H 11192 1296 50  0000 L CNN
@@ -3529,7 +3452,7 @@ Wire Wire Line
 	11800 1850 11900 1850
 Connection ~ 11800 1250
 $Comp
-L 74xx:74LS38 U11
+L IPCMemoryExpansionBoard-rescue:74LS38-74xx U11
 U 5 1 6072BD80
 P 6350 10450
 F 0 "U11" H 6350 10133 50  0000 C CNN
@@ -3537,10 +3460,10 @@ F 1 "74LS38" H 6350 10224 50  0000 C CNN
 F 2 "Package_DIP:DIP-14_W7.62mm" H 6350 10450 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS38" H 6350 10450 50  0001 C CNN
 	5    6350 10450
-	-1   0    0    1   
+	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0145
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0145
 U 1 1 6072C697
 P 6350 10950
 F 0 "#PWR0145" H 6350 10700 50  0001 C CNN
@@ -3551,14 +3474,14 @@ F 3 "" H 6350 10950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR0146
+L IPCMemoryExpansionBoard-rescue:+5V-power #PWR0146
 U 1 1 6072C728
-P 6350 9950
-F 0 "#PWR0146" H 6350 9800 50  0001 C CNN
-F 1 "+5V" H 6365 10123 50  0000 C CNN
-F 2 "" H 6350 9950 50  0001 C CNN
-F 3 "" H 6350 9950 50  0001 C CNN
-	1    6350 9950
+P 6350 9850
+F 0 "#PWR0146" H 6350 9700 50  0001 C CNN
+F 1 "+5V" H 6365 10023 50  0000 C CNN
+F 2 "" H 6350 9850 50  0001 C CNN
+F 3 "" H 6350 9850 50  0001 C CNN
+	1    6350 9850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -3572,7 +3495,7 @@ Wire Wire Line
 Wire Wire Line
 	9400 3500 9400 3700
 $Comp
-L power:GND #PWR018
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR018
 U 1 1 615604EE
 P 9400 3700
 F 0 "#PWR018" H 9400 3450 50  0001 C CNN
@@ -3583,7 +3506,7 @@ F 3 "" H 9400 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR015
+L IPCMemoryExpansionBoard-rescue:+5V-power #PWR015
 U 1 1 61560711
 P 9400 3000
 F 0 "#PWR015" H 9400 2850 50  0001 C CNN
@@ -3602,12 +3525,12 @@ SCL
 Text Label 9450 3400 0    50   ~ 0
 SDA
 $Comp
-L Connector:USB_B_Micro J3
+L IPCMemoryExpansionBoard-rescue:USB_B_Micro-Connector J3
 U 1 1 616F360D
 P 11500 9150
 F 0 "J3" H 11555 9617 50  0000 C CNN
 F 1 "USB_B_Micro" H 11555 9526 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_614105150721_Vertical" H 11650 9100 50  0001 C CNN
+F 2 "Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal" H 11650 9100 50  0001 C CNN
 F 3 "~" H 11650 9100 50  0001 C CNN
 	1    11500 9150
 	1    0    0    -1  
@@ -3633,9 +3556,8 @@ F 3 "~" V 8700 3425 50  0001 C CNN
 $EndComp
 NoConn ~ 9100 3100
 NoConn ~ 9100 3600
-NoConn ~ 2250 9150
 $Comp
-L Device:C_Small C27
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C27
 U 1 1 608D884C
 P 9200 7600
 F 0 "C27" H 9292 7646 50  0000 L CNN
@@ -3646,7 +3568,7 @@ F 3 "~" H 9200 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C28
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C28
 U 1 1 608D8853
 P 9500 7600
 F 0 "C28" H 9592 7646 50  0000 L CNN
@@ -3657,7 +3579,7 @@ F 3 "~" H 9500 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C29
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C29
 U 1 1 608D885A
 P 9800 7600
 F 0 "C29" H 9892 7646 50  0000 L CNN
@@ -3668,7 +3590,7 @@ F 3 "~" H 9800 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C30
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C30
 U 1 1 608D8861
 P 10100 7600
 F 0 "C30" H 10192 7646 50  0000 L CNN
@@ -3679,7 +3601,7 @@ F 3 "~" H 10100 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C31
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C31
 U 1 1 608D8868
 P 10400 7600
 F 0 "C31" H 10492 7646 50  0000 L CNN
@@ -3690,7 +3612,7 @@ F 3 "~" H 10400 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C32
+L IPCMemoryExpansionBoard-rescue:C_Small-Device C32
 U 1 1 608D886F
 P 10650 7600
 F 0 "C32" H 10742 7646 50  0000 L CNN
@@ -3729,7 +3651,7 @@ Connection ~ 10400 7700
 Wire Wire Line
 	10400 7700 10650 7700
 $Comp
-L power:GND #PWR020
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR020
 U 1 1 60A6CD23
 P 10100 7700
 F 0 "#PWR020" H 10100 7450 50  0001 C CNN
@@ -3740,7 +3662,7 @@ F 3 "" H 10100 7700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+3.3V #PWR019
+L IPCMemoryExpansionBoard-rescue:+3.3V-power #PWR019
 U 1 1 60A6CDC0
 P 10100 7500
 F 0 "#PWR019" H 10100 7350 50  0001 C CNN
@@ -3750,4 +3672,147 @@ F 3 "" H 10100 7500 50  0001 C CNN
 	1    10100 7500
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	5050 5700 5050 5750
+Wire Wire Line
+	4550 5700 5050 5700
+Wire Wire Line
+	4550 4800 4600 4800
+Wire Wire Line
+	3450 4900 3800 4900
+Wire Wire Line
+	3750 4800 3750 6100
+Wire Wire Line
+	3750 6100 3850 6100
+Connection ~ 3750 4800
+Wire Wire Line
+	4600 7100 4600 7000
+Wire Wire Line
+	4600 7000 4550 7000
+Wire Wire Line
+	3800 4900 3800 6200
+Wire Wire Line
+	3800 6200 3850 6200
+Connection ~ 3800 4900
+Wire Wire Line
+	3800 4900 3850 4900
+Wire Wire Line
+	4550 6100 4600 6100
+Wire Wire Line
+	4600 6100 4600 4800
+Connection ~ 4600 4800
+Wire Wire Line
+	4600 4800 5150 4800
+$Comp
+L IPCMemoryExpansionBoard-rescue:R_Small-Device R14
+U 1 1 616A9E2B
+P 1100 9150
+F 0 "R14" H 1159 9196 50  0000 L CNN
+F 1 "10k" H 1159 9105 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1100 9150 50  0001 C CNN
+F 3 "~" H 1100 9150 50  0001 C CNN
+	1    1100 9150
+	1    0    0    -1  
+$EndComp
+$Comp
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0126
+U 1 1 616A9FFD
+P 1100 9300
+F 0 "#PWR0126" H 1100 9050 50  0001 C CNN
+F 1 "GND" H 1105 9127 50  0000 C CNN
+F 2 "" H 1100 9300 50  0001 C CNN
+F 3 "" H 1100 9300 50  0001 C CNN
+	1    1100 9300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 9300 1100 9250
+Wire Wire Line
+	1700 9000 1350 9000
+Wire Wire Line
+	1100 9000 1100 9050
+Wire Wire Line
+	1700 8700 1350 8700
+Wire Wire Line
+	1350 8700 1350 8800
+Connection ~ 1350 9000
+Wire Wire Line
+	1350 9000 1100 9000
+Wire Wire Line
+	1700 8900 1350 8900
+Connection ~ 1350 8900
+Wire Wire Line
+	1350 8900 1350 9000
+Wire Wire Line
+	1700 8800 1350 8800
+Connection ~ 1350 8800
+Wire Wire Line
+	1350 8800 1350 8900
+Connection ~ 8200 8250
+Connection ~ 8800 8250
+Wire Wire Line
+	8200 8250 8800 8250
+Wire Wire Line
+	8200 8050 8800 8050
+$Comp
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0147
+U 1 1 61CAD484
+P 5800 10350
+F 0 "#PWR0147" H 5800 10100 50  0001 C CNN
+F 1 "GND" H 5805 10177 50  0000 C CNN
+F 2 "" H 5800 10350 50  0001 C CNN
+F 3 "" H 5800 10350 50  0001 C CNN
+	1    5800 10350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6350 9950 6350 9850
+Wire Wire Line
+	6350 9950 5800 9950
+Wire Wire Line
+	5800 9950 5800 10150
+Connection ~ 6350 9950
+$Comp
+L Device:D_Schottky_Small D6
+U 1 1 61286079
+P 12000 8950
+F 0 "D6" H 12100 9000 50  0000 C CNN
+F 1 "MBRS130L" H 12000 8900 50  0000 C CNN
+F 2 "Diode_SMD:D_SMB_Handsoldering" V 12000 8950 50  0001 C CNN
+F 3 "~" V 12000 8950 50  0001 C CNN
+	1    12000 8950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	11800 8950 11900 8950
+Wire Wire Line
+	12100 8950 12200 8950
+$Comp
+L Device:D_Schottky_Small D5
+U 1 1 613A241C
+P 2200 1300
+F 0 "D5" H 2100 1250 50  0000 C CNN
+F 1 "MBRS130L" H 1950 1350 50  0000 C CNN
+F 2 "Diode_SMD:D_SMB_Handsoldering" V 2200 1300 50  0001 C CNN
+F 3 "~" V 2200 1300 50  0001 C CNN
+	1    2200 1300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2300 1300 2400 1300
+Wire Wire Line
+	1450 1200 2450 1200
+Wire Wire Line
+	1450 1300 2050 1300
+Wire Wire Line
+	2650 5700 1450 5700
+Wire Wire Line
+	2200 6400 1450 6400
+Wire Wire Line
+	2050 1300 2050 7100
+Wire Wire Line
+	1450 7100 2050 7100
+Connection ~ 2050 1300
+Wire Wire Line
+	2050 1300 2100 1300
 $EndSCHEMATC
