@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "C:/Users/mattis/IntegralMemExp/tb_isim_beh.exe" -prj "C:/Users/mattis/IntegralMemExp/tb_beh.prj" "tb" 

@@ -68,7 +68,7 @@ VARIABLE vROMADR : std_logic_vector(3 downto 0) := (others => '0');
 BEGIN
 		vNCEROM := '1';
 		vNCERAM := '1';
-      vROMADR := "0000";
+      vROMADR := "ZZZZ";
 		vDS := '0';
 		vIMA := '0';
 		vDTACK := '0';
@@ -88,7 +88,7 @@ BEGIN
 		  vNWE := '1';
 		END IF;
 -- RAM FROM 0x0800000 to 0x0E00000		
-		IF ((ADRIN >= "10000") AND  (ADRIN <= "11100" )) THEN
+		IF ((ADRIN >= "10000") AND  (ADRIN <= "11101" )) THEN
 		  vNCERAM := '0';
 		  vROMADR := ADRIN(3 DOWNTO 0);
 		END IF;
@@ -184,6 +184,10 @@ BEGIN
 			    D2 <= '1';
 			    D3 <= '1';
 			    D7 <= FLASH_RY;
+				 vNOE := 'Z';
+				 vNCEROM := 'Z';
+				 vNCERAM := 'Z';
+				 vNWE := 'Z';
 			ELSE 
 				 D0 <= 'Z';
 				 D1 <= 'Z';
@@ -213,7 +217,10 @@ BEGIN
 		ELSE
 		   OE245 <= '1';
 			NCEROM <= 'Z';
-			ROMADR <= "ZZZZ";
+			ROMADR(0) <= ADRIN(0);
+			ROMADR(1) <= ADRIN(1);
+			ROMADR(2) <= ADRIN(2);
+			ROMADR(3) <= ADRIN(3);
 			NCERAM <= 'Z';
          NOE <= 'Z';
          NWE <= 'Z';
