@@ -1,6 +1,13 @@
-# IPCMemoryExpansion
+# HP Integral PC Memory Expansion board
+
+![HP Integral PC](http://storage.datormuseum.se/u/96935524/Datormusuem/HP_IntegralPC.png)
+
+The HP Integral PC was a portable 68000 UNIX based computer introduced in 1984. The computer included a floppy drive as mass storage and a printer was built in. The screen was a electroluminicent screen. The computer has a HPIB connector to attach to external devices. External disks can be attached through HPIB.
+
+The computer has a two expansion slot where various peripherals can be installed. For example serial boards or memory expansion boards. It was also possible to install ROM boards. The software engineering ROM has 2Mbyte of ROM expansion and when installed appear as 8 disk devices in the Unix system.
 
 The project aims at creating a 7M RAM and 8M ROM memory expansion to the HP Integral computer. RAM is implemented using a single SRAM chip and ROM is implemented using a single NOR FLASH ROM chip. DIP-switches are used to map the ROM into the various ROM areas of the Integral.
+
 
 ## ROM
 The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
@@ -42,3 +49,9 @@ A Xilinx XC2C32A CPLD is used for all address decoding and ROM remapping. The VH
 ## Schematic 
 
 ![Schematic](https://raw.githubusercontent.com/MattisLind/IPCMemoryExpansion/main/IPCMemoryExpansionBoard/IPCMemoryExpansionBoard.png)
+
+## Links
+
+[HP Museum page on the Integral PC](http://www.hpmuseum.net/display_item.php?hw=122)
+[Peter Johnsons page on the Integral PC](http://www.coho.org/~pete/IPC/integral.html)
+
