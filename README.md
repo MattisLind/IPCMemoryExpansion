@@ -1,6 +1,6 @@
 # IPCMemoryExpansion
 
-The project aims at creating a 7M RAM and 8M ROM memory expansion to the HP Integral compurter. RAM is implemented using a single SRAM chip and ROM is implemented usinga single NOR FLASH ROM chip. DIP-switches are used to map the ROM into the various ROM areas of the Integral.
+The project aims at creating a 7M RAM and 8M ROM memory expansion to the HP Integral computer. RAM is implemented using a single SRAM chip and ROM is implemented using a single NOR FLASH ROM chip. DIP-switches are used to map the ROM into the various ROM areas of the Integral.
 
 ## ROM
 The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
