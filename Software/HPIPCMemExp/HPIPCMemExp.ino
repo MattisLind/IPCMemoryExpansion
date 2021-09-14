@@ -10,7 +10,8 @@ HP IPC Memory Expansion controller
 //pointer used to write to start address of FSMC
  
 
-volatile uint16_t* fsmc = (uint16_t*)0x68000000;
+volatile uint16_t* sram = (uint16_t*)0x68000000;
+volatile uint16_t* flash = (uint16_t*)0x6C000000;
  
 
  
@@ -122,28 +123,67 @@ void setup() {
   FSMC_setup();
 }
 
+void flashSectorErase () {
+  
+}
+
+void flashBlockErase () {
+  
+}
+
+void flashChipErase () {
+  //
+  flash[0x555] = 0xAA;
+  flash[0x2AA] = 0x55;
+  flash[0x555] = 0x80;
+  flash[0x555] = 0xAA;
+  flash[0x2AA] = 0x55;
+  flash[0x555] = 0x10;
+}
+
+uint16_t flashReadManufacturerID () {
+  uint16_t tmp;
+  flash[0x555] = 0xAA;
+  flash[0x2AA] = 0x55;
+  flash[0x555] = 0x90;
+  tmp = flash[0];
+  flash[0x555] = 0xAA;
+  flash[0x2AA] = 0x55;
+  flash[0x555] = 0xF0;
+  return tmp;    
+}
+
+void flashWordProgram ( uint32_t address, uint16_t data ) {
+  
+}
+
+void sramTest () {
+  int i; 
+  for (i=0; i<4194304; i++) {
+    sram[i] = (i>>16) ^ (i & 0xffff) ;
+  }
+  for (i=0; i<4194304; i++) {
+    if (((i>>16) ^ (i & 0xffff)) != sram[i]) {
+      Serial.print("ERROR: ");
+      Serial.print(i,HEX);
+      Serial.print(" ");
+      Serial.println(sram[i],HEX);
+    }
+  } 
+  Serial.println("OK"); 
+}
+
 char ch=0x41;
 uint16_t data=0, readin;
 // the loop function runs over and over again forever
 void loop() {
-  int i;
+  
   digitalWrite(PG13, LOW);  // Enable the STM32 on the bus. Disable LVC245 drivers.
   
   
   //if (digitalRead(PD8)) {
-
-  for (i=0; i<4000000; i++) {
-    fsmc[i] = i>>16;
-  }
-  for (i=0; i<4000000; i++) {
-    if ((i>>16) != fsmc[i]) {
-      Serial.print("ERROR: ");
-      Serial.print(i,HEX);
-      Serial.print(" ");
-      Serial.println(fsmc[i],HEX);
-    }
-  }
-  Serial.println("OK");
+  sramTest  ();
+  
   digitalWrite(PG8, HIGH);
   digitalWrite(PG7, HIGH);   // turn the LED on (HIGH is the voltage level)
   digitalWrite(PG6, LOW);   // turn the LED on (HIGH is the voltage level)
