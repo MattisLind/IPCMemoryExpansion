@@ -41,18 +41,16 @@ Wire Wire Line
 $Comp
 L IPCMemoryExpansionBoard-rescue:+5V-power #PWR0102
 U 1 1 604835D7
-P 2200 900
-F 0 "#PWR0102" H 2200 750 50  0001 C CNN
-F 1 "+5V" H 2215 1073 50  0000 C CNN
-F 2 "" H 2200 900 50  0001 C CNN
-F 3 "" H 2200 900 50  0001 C CNN
-	1    2200 900 
+P 2400 900
+F 0 "#PWR0102" H 2400 750 50  0001 C CNN
+F 1 "+5V" H 2415 1073 50  0000 C CNN
+F 2 "" H 2400 900 50  0001 C CNN
+F 3 "" H 2400 900 50  0001 C CNN
+	1    2400 900 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1450 1300 2200 1300
-Wire Wire Line
-	2200 900  2200 1300
+	2400 900  2400 1300
 Text Label 1700 1200 0    50   ~ 0
 BA1
 Text Label 1700 1500 0    50   ~ 0
@@ -194,17 +192,6 @@ Text Label 1700 6100 0    50   ~ 0
 NBLD
 Wire Wire Line
 	1450 6000 1900 6000
-$Comp
-L IPCMemoryExpansionBoard-rescue:+5V-power #PWR0107
-U 1 1 6049A7D5
-P 2100 5500
-F 0 "#PWR0107" H 2100 5350 50  0001 C CNN
-F 1 "+5V" H 2115 5673 50  0000 C CNN
-F 2 "" H 2100 5500 50  0001 C CNN
-F 3 "" H 2100 5500 50  0001 C CNN
-	1    2100 5500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2300 7300 2300 7350
 $Comp
@@ -223,8 +210,6 @@ Wire Wire Line
 Wire Wire Line
 	2300 7000 2300 7300
 Connection ~ 2300 7300
-Wire Wire Line
-	1450 7100 2100 7100
 Text Label 1700 6000 0    50   ~ 0
 NBUD
 Wire Wire Line
@@ -541,8 +526,6 @@ IMA
 Wire Wire Line
 	2450 1200 2450 1000
 Wire Wire Line
-	1450 1200 2450 1200
-Wire Wire Line
 	2500 1400 2500 1200
 Wire Wire Line
 	1450 1400 2500 1400
@@ -684,8 +667,6 @@ Wire Wire Line
 Wire Wire Line
 	2650 4400 3850 4400
 Wire Wire Line
-	1450 5700 2650 5700
-Wire Wire Line
 	3850 4800 3750 4800
 Wire Wire Line
 	3850 5000 3450 5000
@@ -703,8 +684,6 @@ Wire Wire Line
 	3850 5600 3450 5600
 Wire Wire Line
 	3850 5700 3450 5700
-Wire Wire Line
-	1450 6400 2200 6400
 Wire Wire Line
 	1450 6500 2200 6500
 Wire Wire Line
@@ -2216,8 +2195,6 @@ F 3 "" H 12200 8900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	12200 8950 12200 8900
-Wire Wire Line
-	11800 8950 12200 8950
 $Comp
 L IPCMemoryExpansionBoard-rescue:C_Small-Device C15
 U 1 1 6248E320
@@ -2628,7 +2605,7 @@ U 1 1 63115F60
 P 9450 8700
 F 0 "D2" H 9441 8916 50  0000 C CNN
 F 1 "GREEN" H 9441 8825 50  0000 C CNN
-F 2 "LED_THT:LED_D5.0mm_Horizontal_O1.27mm_Z3.0mm" H 9450 8700 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm" H 9450 8700 50  0001 C CNN
 F 3 "~" H 9450 8700 50  0001 C CNN
 	1    9450 8700
 	1    0    0    -1  
@@ -2639,7 +2616,7 @@ U 1 1 63116076
 P 9450 9100
 F 0 "D3" H 9441 9316 50  0000 C CNN
 F 1 "YELLOW" H 9441 9225 50  0000 C CNN
-F 2 "LED_THT:LED_D5.0mm_Horizontal_O1.27mm_Z3.0mm" H 9450 9100 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm" H 9450 9100 50  0001 C CNN
 F 3 "~" H 9450 9100 50  0001 C CNN
 	1    9450 9100
 	1    0    0    -1  
@@ -2650,7 +2627,7 @@ U 1 1 631160F0
 P 9450 9500
 F 0 "D4" H 9441 9716 50  0000 C CNN
 F 1 "RED" H 9441 9625 50  0000 C CNN
-F 2 "LED_THT:LED_D5.0mm_Horizontal_O1.27mm_Z3.0mm" H 9450 9500 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm" H 9450 9500 50  0001 C CNN
 F 3 "~" H 9450 9500 50  0001 C CNN
 	1    9450 9500
 	1    0    0    -1  
@@ -2735,8 +2712,6 @@ Text Label 7500 9650 0    50   ~ 0
 DIPSW6
 Text Label 7500 9750 0    50   ~ 0
 DIPSW7
-Wire Wire Line
-	2100 5500 2100 7100
 Wire Wire Line
 	11900 6550 11500 6550
 Wire Wire Line
@@ -3555,7 +3530,7 @@ U 1 1 616F360D
 P 11500 9150
 F 0 "J3" H 11555 9617 50  0000 C CNN
 F 1 "USB_B_Micro" H 11555 9526 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_614105150721_Vertical" H 11650 9100 50  0001 C CNN
+F 2 "Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal" H 11650 9100 50  0001 C CNN
 F 3 "~" H 11650 9100 50  0001 C CNN
 	1    11500 9150
 	1    0    0    -1  
@@ -3797,4 +3772,47 @@ Wire Wire Line
 Wire Wire Line
 	5800 9950 5800 10150
 Connection ~ 6350 9950
+$Comp
+L Device:D_Schottky_Small D6
+U 1 1 61286079
+P 12000 8950
+F 0 "D6" H 12100 9000 50  0000 C CNN
+F 1 "MBRS130L" H 12000 8900 50  0000 C CNN
+F 2 "Diode_SMD:D_SMB_Handsoldering" V 12000 8950 50  0001 C CNN
+F 3 "~" V 12000 8950 50  0001 C CNN
+	1    12000 8950
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	11800 8950 11900 8950
+Wire Wire Line
+	12100 8950 12200 8950
+$Comp
+L Device:D_Schottky_Small D5
+U 1 1 613A241C
+P 2200 1300
+F 0 "D5" H 2100 1250 50  0000 C CNN
+F 1 "MBRS130L" H 1950 1350 50  0000 C CNN
+F 2 "Diode_SMD:D_SMB_Handsoldering" V 2200 1300 50  0001 C CNN
+F 3 "~" V 2200 1300 50  0001 C CNN
+	1    2200 1300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2300 1300 2400 1300
+Wire Wire Line
+	1450 1200 2450 1200
+Wire Wire Line
+	1450 1300 2050 1300
+Wire Wire Line
+	2650 5700 1450 5700
+Wire Wire Line
+	2200 6400 1450 6400
+Wire Wire Line
+	2050 1300 2050 7100
+Wire Wire Line
+	1450 7100 2050 7100
+Connection ~ 2050 1300
+Wire Wire Line
+	2050 1300 2100 1300
 $EndSCHEMATC
