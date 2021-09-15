@@ -26,7 +26,7 @@ The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
 | 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   0    |  NONE     | NONE |
 | 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  600000-7FFFFF     | AUX ROM 2 |
 
-There is a STM32F407ZET SoC that is used for reading files from a FAT formatted file system on a SD card and program those into the FLASH area. The mapping between files and flash area is controlled by a configuration file on the SD card. Another possible is that the boards emulate a disk over USB. I.e. a USB flash stick.
+There is a STM32F407ZET SoC that is used for reading files from a FAT formatted file system on a SD card and program those into the FLASH area. The mapping between files and flash area is controlled by a configuration file on the SD card. Another possible solution is that the boards emulate a disk over USB. I.e. a USB flash stick.
 Then host system can then use dd command to simply write to flash on the card.
 
 If DIPSW 6 is enabled the SoC will check the ROM contents and to see if it needs to be updated. If DIPSW6 is disabled the SoC will remain idle and do nothing unless commanded though the USB port command interface. The ROM is implemented in one single 8 Mbyte SST38VF6401 chip.
