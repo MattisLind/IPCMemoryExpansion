@@ -23,8 +23,8 @@ The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
 | 100000 - 2FFFFF        |   X    |   X    |   X    |   0    |   0    |   X    |  200000-3FFFFF     | SE ROM |
 | 100000 - 2FFFFF        |   X    |   X    |   X    |   0    |   1    |   X    |  400000-5FFFFF     | AUX ROM 1|
 | 100000 - 2FFFFF        |   X    |   X    |   X    |   1    |   X    |   X    |  NONE     | NONE |
-| 300000 - 5FFFFF        |   X    |   X    |   X    |   X    |   X    |   0    |  NONE     | NONE |
-| 300000 - 5FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  600000-7FFFFF     | AUX ROM 2 |
+| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   0    |  NONE     | NONE |
+| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  600000-7FFFFF     | AUX ROM 2 |
 
 There is a STM32F407ZET SoC that is used for reading files from a FAT fromatted file system on a SD card and program those into the FLASH area. The mapping between files and flash area is controlled by a configuration file on the SD card.
 
