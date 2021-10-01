@@ -157,10 +157,13 @@ void setup() {
   pinMode(PG7, OUTPUT);
   pinMode(PG8, OUTPUT);
   pinMode(PG13, OUTPUT);
+  pinMode(PD6, INPUT);
   //pinMode(PD8, INPUT_PULLDOWN);
   //digitalWrite(PD8,LOW);
   Serial.begin(9600);
+  digitalWrite(PG13, LOW);  // Enable the STM32 on the bus. Disable LVC245 drivers.
   FSMC_setup();
+  Serial.write("IPCMEMTESTER> ");
 }
 
 void flashSectorErase (uint16_t sector) {
@@ -170,7 +173,12 @@ void flashSectorErase (uint16_t sector) {
   flash[0x555] = 0xAA;
   flash[0x2AA] = 0x55;
   flash[sector] = 0x50; 
-  while ((flash[0]&0x80) == 0) delay(1); 
+  dummy++;
+  dummy++;
+  dummy++;
+    while (digitalRead(PD6)==0) {
+    dummy = 1;
+  } 
 }
 
 void flashBlockErase (uint16_t block) {
@@ -180,7 +188,12 @@ void flashBlockErase (uint16_t block) {
   flash[0x555] = 0xAA;
   flash[0x2AA] = 0x55;
   flash[block] = 0x30; 
-  while ((flash[0]&0x80) == 0) delay(1); 
+  dummy++;
+  dummy++;
+  dummy++;
+    while (digitalRead(PD6)==0) {
+    dummy = 1;
+  } 
 }
 
 void flashChipErase () {
@@ -191,9 +204,13 @@ void flashChipErase () {
   flash[0x555] = 0xAA;
   flash[0x2AA] = 0x55;
   flash[0x555] = 0x10;
-  while ((flash[0]&0x80) == 0) {
-    Serial.print(".");
-    delay(1000);
+  dummy++;
+  dummy++;
+  dummy++;
+  while (digitalRead(PD6)==0) {
+    dummy++;
+    dummy++;
+    dummy++;
   }
 }
 
@@ -222,6 +239,7 @@ uint16_t flashReadDeviceID () {
 }
 
 void flashWordProgram ( uint32_t address, uint16_t data ) {
+  
   //Serial.print("FLASH WORD PROGRAM");
   //Serial.print(address, HEX);
   //Serial.print(" ");
@@ -231,10 +249,12 @@ void flashWordProgram ( uint32_t address, uint16_t data ) {
   flash[0x2AA] = 0x55;
   flash[0x555] = 0xA0;  
   flash[address] = data;
-  while ((flash[address]&0x80) != (data & 0x80)) {
-    //Serial.println(flash[address], HEX);
-    //delay(1);
-    dummy = address;
+  dummy++;
+  dummy++;
+  dummy++;
+  while (digitalRead(PD6)==0) {
+    dummy++;
+    dummy++;
   }
 }
 
@@ -262,6 +282,7 @@ void flashTest () {
   int i; 
   Serial.println("FLASH PROGRAMMING");
   for (i=0; i<4194304; i++) {
+  //for (i=0; i<65536; i++) {
     flashWordProgram(i, (i>>16) ^ (i & 0xffff));
     if ((i % 65536) == 0) {
       Serial.print(".");
@@ -270,6 +291,7 @@ void flashTest () {
   Serial.println("OK");
   Serial.println("CHECKING");
   for (i=0; i<4194304; i++) {
+  //for (i=0; i<65536; i++) {
     if (((i>>16) ^ (i & 0xffff)) != flash[i]) {
       Serial.print("FLASH ERROR: ");
       Serial.print(i,HEX);
@@ -301,19 +323,143 @@ void flashEmptyCheck () {
   Serial.println("OK"); 
 }
 
-char ch=0x41;
+int state = 0;
+int address;
+int numHexChars = 0;
+int hexValue;
+int sramEnabled=1;
 uint16_t data=0, readin;
 uint16_t flashdata=0;
+char command;
 // the loop function runs over and over again forever
-void loop() {
-  
-  digitalWrite(PG13, LOW);  // Enable the STM32 on the bus. Disable LVC245 drivers.
-  
-  
-  Serial.println("FLASH ERASE");
+void loop() {  
+  char ch;
+  if (Serial.available()) {
+    ch = Serial.read();
+    if (ch > 0x60) ch -= 0x20;
+    if (state == 0) {
+      switch (ch) {
+        case 'L':
+          Serial.write('L');
+          Serial.write(' ');
+          state = 1;
+          hexValue = 0;
+          numHexChars = 0;
+          command = ch;
+        break;
+        case 'S':
+          Serial.println("SRAM SELECTED");
+          Serial.write("IPCMEMTESTER> ");
+          sramEnabled = 1;
+          break;
+        case 'C':
+          flashChipErase();
+        break;
+        case 'H':
+          Serial.println();
+          Serial.println("H - Help");
+          Serial.println("C - Clear flash");
+          Serial.println("E - Examine memory");
+          Serial.println("D - Deposit into memory");
+          Serial.println("S - Select SRAM");
+          Serial.println("F - Select Flash");
+          Serial.println("L - Load address");
+          Serial.println("T - Sector Erase");
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+        case 'T':
+          Serial.write('T');
+          Serial.write(' ');
+          state = 1;
+          hexValue = 0;
+          numHexChars = 0;
+          command = ch;          
+          break;
+        case 'F':
+          Serial.println("FLASH SELECTED");
+          Serial.write("IPCMEMTESTER> ");
+          sramEnabled = 0;
+          break;  
+        case 'E':
+          Serial.write('E');
+          Serial.write(' ');
+          Serial.print(address, HEX);
+          Serial.write(' ');
+          if (sramEnabled) {
+            Serial.print(sram[address], HEX );
+          } else {
+            Serial.print(flash[address], HEX );         
+          }
+          address++;
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+        break;
+        case 'D':
+          Serial.write('D');
+          Serial.write(' ');
+          Serial.print(address, HEX);
+          Serial.write(' ');
+          if (sramEnabled) {
+            Serial.print(sram[address], HEX );
+          } else {
+            Serial.print(flash[address], HEX );         
+          }
+          Serial.write(' ');
+          hexValue = 0;
+          numHexChars = 0;
+          command = ch;
+          state = 1;
+          
+        break;
+        case '\r':
+        case '\n':
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+        break;
+      }
+    } else if (state == 1) {
+        // collect hex digits
+        if (ch >= 'A' && ch <= 'F' && numHexChars < 8) {
+          Serial.write(ch);
+          hexValue = (hexValue << 4) | (0x0f & (ch -'A' + 10)); 
+          numHexChars++;  
+        } else if (ch >= '0' && ch <= '9' && numHexChars < 8) {
+          Serial.write(ch);
+          hexValue = (hexValue << 4) | (0x0f & (ch -'0'));
+          numHexChars++;
+        } else if ((ch == '\r') || (numHexChars >= 8)) {
+          switch (command) {
+            case 'L':
+              address = hexValue;
+              break;
+            case 'D':
+              if (sramEnabled) {
+                sram[address] = hexValue;
+              } else {
+                flashWordProgram(address, hexValue);
+              }
+              address++;
+              break;
+            case 'T':
+             flashSectorErase(hexValue);
+             break; 
+          }
+          //Serial.println();
+          //Serial.print(hexValue, HEX);
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+          state = 0;
+        } else {
+          Serial.write("?\n");
+          Serial.write("IPCMEMTESTER> ");
+          state = 0;
+        }
+    }
+  }
+  /*Serial.println("FLASH ERASE");
   digitalWrite(PG8, HIGH);
-  digitalWrite(PG7, HIGH);   // turn the LED on (HIGH is the voltage level)
-  digitalWrite(PG6, LOW);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(PG7, HIGH);  
+  digitalWrite(PG6, LOW);   
   flashChipErase();
   Serial.print("Manufacturer ID:");
   Serial.print(flashReadManufacturerID(), HEX);
@@ -321,8 +467,8 @@ void loop() {
   Serial.println("FLASH EMPTY CHECK");
   flashEmptyCheck ();
   digitalWrite(PG8, HIGH);
-  digitalWrite(PG7, LOW);   // turn the LED on (HIGH is the voltage level)
-  digitalWrite(PG6, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(PG7, LOW);   
+  digitalWrite(PG6, HIGH);   
   Serial.print("Device ID:");
   Serial.print(flashReadDeviceID(), HEX);
   Serial.println();
@@ -330,8 +476,8 @@ void loop() {
   Serial.println("SRAMTEST");
   sramTest  ();
   digitalWrite(PG8, LOW);
-  digitalWrite(PG7, HIGH);    // turn the LED off by making the voltage LOW
-  digitalWrite(PG6, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(PG7, HIGH);  
+  digitalWrite(PG6, HIGH);  
   Serial.println("FLASHTEST");
-  flashTest();
+  flashTest(); */
 }
