@@ -354,6 +354,8 @@ void loop() {
           break;
         case 'C':
           flashChipErase();
+          Serial.println("FLASH CLEARED");
+          Serial.write("IPCMEMTESTER> ");
         break;
         case 'H':
           Serial.println();
@@ -365,8 +367,29 @@ void loop() {
           Serial.println("F - Select Flash");
           Serial.println("L - Load address");
           Serial.println("T - Sector Erase");
+          Serial.println("A - Flash test");
+          Serial.println("B - SRAM test");
+          Serial.println("G - Flash blank check");
           Serial.println();
           Serial.write("IPCMEMTESTER> ");
+        case 'A':
+          Serial.println();
+          flashTest();
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+          break;
+        case 'B':
+          Serial.println();
+          sramTest();
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+          break;
+        case 'G':
+          Serial.println();
+          flashEmptyCheck();
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+          break;
         case 'T':
           Serial.write('T');
           Serial.write(' ');
@@ -450,7 +473,7 @@ void loop() {
           Serial.write("IPCMEMTESTER> ");
           state = 0;
         } else {
-          Serial.write("?\n");
+          Serial.write("?\n\r");
           Serial.write("IPCMEMTESTER> ");
           state = 0;
         }
