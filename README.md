@@ -15,8 +15,8 @@ The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
 | Integral address range | DIPSW0 | DIPSW1 | DIPSW2 | DIPSW3 | DIPSW4 | DIPSW5 | Flash memory range | Used for |
 |------------------------|--------|--------|--------|--------|--------|--------|--------------------|----------|
 | 000000 - 07FFFF        |   0    |   0    |   X    |   X    |   X    |   X    |  000000-07FFFF     | SYS V ROM|
-| 000000 - 07FFFF        |   0    |   1    |   X    |   X    |   X    |   X    |  080000-0FFFFF     | SYS III ROM|
-| 000000 - 07FFFF        |   1    |   0    |   X    |   X    |   X    |   X    |  100000-17FFFF     | Diag. ROM|
+| 000000 - 07FFFF        |   0    |   1    |   X    |   X    |   X    |   X    |  080000-0FFFFF     | DiagA ROM|
+| 000000 - 07FFFF        |   1    |   0    |   X    |   X    |   X    |   X    |  100000-17FFFF     | DiagB ROM|
 | 000000 - 07FFFF        |   1    |   1    |   X    |   X    |   X    |   X    |  NONE    | Internal ROM used |
 | 080000 - 0FFFFF        |   X    |   X    |   0    |   X    |   X    |   X    |  NONE     | NONE |
 | 080000 - 0FFFFF        |   X    |   X    |   1    |   X    |   X    |   X    |  180000-1FFFFF     | BASIC ROM |
