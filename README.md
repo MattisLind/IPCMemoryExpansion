@@ -49,6 +49,42 @@ All signals are level shifted from 5V TTL to 3.3V LVTTL using six 74LVC245 which
 
 A Xilinx XC2C32A CPLD is used for all address decoding and ROM remapping. The VHDL is provided [here](https://raw.githubusercontent.com/MattisLind/IPCMemoryExpansion/main/XILINX/IntegralMemExp/main.vhd).
 
+## Testing and design fault finding.
+
+Obviously when testing the board for the first time it didn't work at all. Of course I tested many different ways to get it working. But in the end I think that one main problem was the use of UDS/LDS instead of AS strobe. On the standard 68000 that would probably have worked just fine. But on the HP Integral he AS strobe is not at all the AS strobe from the processor. It has gone through plenty of logic until the AS signal found in the expasion connector is generated. Thus the use of the AS signal is a must. Gating with that signal made the RAM expansio work fine.
+
+The ROM expansion has other problems. The main problem which I probably should have noted if I had studied the schematic of the Intergral in more detail is that the ROM cartridge address bus and the expansio connector address bus is not the same. The higher bits above A11 differs in that those that go to the expansion connector passes through the simple MMU which inside the Integral.
+
+### ROM module
+
+To get SYS V working I have make a new ROM module. The same ROM module would then be able to handle not just SYSV, but all different operating systems. The diagnostics and the Tech BASIC in one single cartridge. A 40 pin connector is provided that can be connected to a connector on the expansion board and which makes it possible to program the ROM using the SoC on the expansion ROM.
+
+#### ROM module dimensions
+
+##### Overall size
+
+95.35 mm by 50.55 mm
+
+##### Connector holes
+
+Diameter 1.8 mm
+
+19 holes on each side.
+
+91.3 / 19 = 4.80 mm betwen adjacent holes. 
+
+45.2 mm between holes on the short side.
+
+Hole center 2.5 mm off long edge and 2 mm off the short edge.
+
+##### Hole to fit to the casing
+
+Diameter 3 mm
+
+5 mm off the short edge
+17.2 mm off nearest long edge (The upmost long edge when mounted into the machine)
+89.15 c/c between mounting holes
+
 ## Schematic 
 
 ![Schematic](https://raw.githubusercontent.com/MattisLind/IPCMemoryExpansion/main/IPCMemoryExpansionBoard/IPCMemoryExpansionBoard.png)
