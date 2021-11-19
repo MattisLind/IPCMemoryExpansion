@@ -20,18 +20,20 @@ The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
 | 000000 - 07FFFF        |   1    |   1    |   X    |   X    |   X    |   X    |  NONE    | Internal ROM used |
 | 080000 - 0FFFFF        |   X    |   X    |   0    |   X    |   X    |   X    |  NONE     | NONE |
 | 080000 - 0FFFFF        |   X    |   X    |   1    |   X    |   X    |   X    |  180000-1FFFFF     | BASIC ROM |
-| 100000 - 2FFFFF        |   X    |   X    |   X    |   0    |   0    |   X    |  200000-3FFFFF     | SE ROM |
-| 100000 - 2FFFFF        |   X    |   X    |   X    |   0    |   1    |   X    |  400000-5FFFFF     | AUX ROM 1|
-| 100000 - 2FFFFF        |   X    |   X    |   X    |   1    |   X    |   X    |  NONE     | NONE |
+| 100000 - 1FFFFF        |   X    |   X    |   X    |   X    |   X    |   0    |  NONE              |           |
+| 100000 - 1FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  600000-6FFFFF     | AUX ROM 3|
+| 200000 - 3FFFFF        |   X    |   X    |   X    |   0    |   0    |   X    |  200000-3FFFFF     | SE ROM |
+| 200000 - 3FFFFF        |   X    |   X    |   X    |   0    |   1    |   X    |  400000-5FFFFF     | AUX ROM 1|
+| 200000 - 3FFFFF        |   X    |   X    |   X    |   1    |   X    |   X    |  NONE     | NONE |
 | 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   0    |  NONE     | NONE |
-| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  600000-7FFFFF     | AUX ROM 2 |
+| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  700000-7FFFFF     | AUX ROM 2 |
 
 There is a STM32F407ZET SoC that is used for reading files from a FAT formatted file system on a SD card and program those into the FLASH area. The mapping between files and flash area is controlled by a configuration file on the SD card. Another possible solution is that the boards emulate a disk over USB. I.e. a USB flash stick.
 Then host system can then use dd command to simply write to flash on the card.
 
 If DIPSW 6 is enabled the SoC will check the ROM contents and to see if it needs to be updated. If DIPSW6 is disabled the SoC will remain idle and do nothing unless commanded though the USB port command interface. The ROM is implemented in one single 8 Mbyte SST38VF6401 chip.
 
-
+DIPSW6 is used for enabling and disabling the busdrivers and DIPSW7 is connected to RESET of the processor. Thus the processort portion can be completely disabled when both these switches are pushed down.
 
 ## RAM
 
@@ -53,11 +55,13 @@ A Xilinx XC2C32A CPLD is used for all address decoding and ROM remapping. The VH
 
 Obviously when testing the board for the first time it didn't work at all. Of course I tested many different ways to get it working. But in the end I think that one main problem was the use of UDS/LDS instead of AS strobe. On the standard 68000 that would probably have worked just fine. But on the HP Integral he AS strobe is not at all the AS strobe from the processor. It has gone through plenty of logic until the AS signal found in the expasion connector is generated. Thus the use of the AS signal is a must. Gating with that signal made the RAM expansio work fine.
 
-The ROM expansion has other problems. The main problem which I probably should have noted if I had studied the schematic of the Intergral in more detail is that the ROM cartridge address bus and the expansio connector address bus is not the same. The higher bits above A11 differs in that those that go to the expansion connector passes through the simple MMU which inside the Integral.
+Since the 74LVC245 inputs are CMOS there wil be no current flowing towards the expansion board. When I attached a bus extender board to be able to measure on the board the added buslength seemed to cause trouble. Adding bus terminating resistors at the 74LVC245 inputs seemed to fix the issue. To better adapt the 74LVC254 driver to the bus impedance a low ohm resistor was inserted in the bus line path for the data bus.
+
+All these changes resulted in a second spin of the board.
 
 ### ROM module
 
-To get SYS V working I have make a new ROM module. The same ROM module would then be able to handle not just SYSV, but all different operating systems. The diagnostics and the Tech BASIC in one single cartridge. A 40 pin connector is provided that can be connected to a connector on the expansion board and which makes it possible to program the ROM using the SoC on the expansion ROM.
+An alternative to have SYS V, BASIC and Diagnostics is to create a ROM module to replace the current SYS III module mounted in the back.
 
 #### ROM module dimensions
 
