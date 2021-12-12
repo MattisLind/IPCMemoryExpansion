@@ -59,36 +59,6 @@ Since the 74LVC245 inputs are CMOS there wil be no current flowing towards the e
 
 All these changes resulted in a second spin of the board.
 
-### ROM module
-
-An alternative to have SYS V, BASIC and Diagnostics is to create a ROM module to replace the current SYS III module mounted in the back.
-
-#### ROM module dimensions
-
-##### Overall size
-
-95.35 mm by 50.55 mm
-
-##### Connector holes
-
-Diameter 1.8 mm
-
-19 holes on each side.
-
-91.3 / 19 = 4.80 mm betwen adjacent holes. 
-
-45.2 mm between holes on the short side.
-
-Hole center 2.5 mm off long edge and 2 mm off the short edge.
-
-##### Hole to fit to the casing
-
-Diameter 3 mm
-
-5 mm off the short edge
-17.2 mm off nearest long edge (The upmost long edge when mounted into the machine)
-89.15 c/c between mounting holes
-
 ## Schematic 
 
 ![Schematic](https://raw.githubusercontent.com/MattisLind/IPCMemoryExpansion/main/IPCMemoryExpansionBoard/IPCMemoryExpansionBoard.png)
