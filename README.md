@@ -1,6 +1,6 @@
 # HP Integral PC Memory Expansion board
 
-![HP Integral PC](http://storage.datormuseum.se/u/96935524/Datormusuem/HP_IntegralPC.png)
+![HP Integral PC](https://i.imgur.com/NDTg9vS.jpg)
 
 The HP Integral PC was a portable 68000 UNIX based computer introduced in 1984. The computer included a floppy drive as mass storage and a printer was built in. The screen was a electroluminicent screen. The computer has a HPIB connector to attach to external devices. External disks can be attached through HPIB.
 
