@@ -622,17 +622,17 @@ Text Label 1350 8600 0    50   ~ 0
 NBLD
 Text Label 1350 8700 0    50   ~ 0
 NBUD
-Text Label 1350 8500 0    50   ~ 0
-BRNW
 Text Label 1350 8300 0    50   ~ 0
+BRNW
+Text Label 1350 8400 0    50   ~ 0
 BNPS
 Text Label 2500 8500 0    50   ~ 0
 NLD
 Text Label 2500 8600 0    50   ~ 0
 NUD
-Text Label 2500 8400 0    50   ~ 0
-RNW
 Text Label 2500 8200 0    50   ~ 0
+RNW
+Text Label 2500 8300 0    50   ~ 0
 NPS
 $Comp
 L IPCMemoryExpansionBoard-rescue:GND-power #PWR0103
@@ -2652,9 +2652,9 @@ $EndComp
 Wire Wire Line
 	10700 10450 11500 10450
 Text Label 11250 10350 0    50   ~ 0
-USB_DP
+USB_P
 Text Label 11250 10450 0    50   ~ 0
-USB_DM
+USB_N
 $Comp
 L IPCMemoryExpansionBoard-rescue:R_Small-Device R15
 U 1 1 608BDB14
@@ -3052,9 +3052,9 @@ Wire Wire Line
 Wire Wire Line
 	14300 2250 14900 2250
 Text Label 14450 2250 0    50   ~ 0
-USB_DM
+USB_N
 Text Label 14450 2350 0    50   ~ 0
-USB_DP
+USB_P
 Wire Wire Line
 	11900 4150 11450 4150
 Text Label 11450 4150 0    50   ~ 0
@@ -3474,11 +3474,11 @@ Wire Wire Line
 	1450 2300 2000 2300
 Wire Wire Line
 	1300 8700 1700 8700
-Text Label 1350 8400 0    50   ~ 0
+Text Label 1350 8500 0    50   ~ 0
 NBAS
 Wire Wire Line
 	2400 8600 2800 8600
-Text Label 2500 8300 0    50   ~ 0
+Text Label 2500 8400 0    50   ~ 0
 NAS
 Wire Wire Line
 	1050 8200 1700 8200
@@ -3750,11 +3750,11 @@ Wire Wire Line
 	3800 6800 4300 6800
 Wire Wire Line
 	4300 6900 3800 6900
-Text Label 3950 6500 0    50   ~ 0
-BNPS
-Text Label 3950 6700 0    50   ~ 0
-BRNW
 Text Label 3950 6600 0    50   ~ 0
+BNPS
+Text Label 3950 6500 0    50   ~ 0
+BRNW
+Text Label 3950 6700 0    50   ~ 0
 NBAS
 Text Label 3950 6900 0    50   ~ 0
 NBUD
@@ -3785,11 +3785,11 @@ Text Label 3150 7650 0    50   ~ 0
 NBLD
 Text Label 3150 7750 0    50   ~ 0
 NBUD
-Text Label 3150 7450 0    50   ~ 0
-NBAS
 Text Label 3150 7550 0    50   ~ 0
-BRNW
+NBAS
 Text Label 3150 7350 0    50   ~ 0
+BRNW
+Text Label 3150 7450 0    50   ~ 0
 BNPS
 $Comp
 L Connector:Conn_01x08_Male J11
@@ -4002,9 +4002,9 @@ Wire Wire Line
 Wire Wire Line
 	3850 7300 4150 7300
 Text Label 3900 7200 0    50   ~ 0
-NBDTACK
+DTACK
 Text Label 3900 7300 0    50   ~ 0
-NBIMA
+IMA
 $Comp
 L IPCMemoryExpansionBoard-rescue:GND-power #PWR0105
 U 1 1 65D2EC19
@@ -4569,4 +4569,104 @@ Text Label 2350 2650 0    50   ~ 0
 RD6
 Wire Wire Line
 	4800 6950 4800 6900
+$Comp
+L Connector:Conn_01x01_Male J28
+U 1 1 61D14167
+P 8900 9400
+F 0 "J28" H 9006 9578 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 9487 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 9400 50  0001 C CNN
+F 3 "~" H 8900 9400 50  0001 C CNN
+	1    8900 9400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J27
+U 1 1 61D1465E
+P 8900 9150
+F 0 "J27" H 9006 9328 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 9237 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 9150 50  0001 C CNN
+F 3 "~" H 8900 9150 50  0001 C CNN
+	1    8900 9150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J26
+U 1 1 61DF0FDD
+P 8900 8900
+F 0 "J26" H 9006 9078 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 8987 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 8900 50  0001 C CNN
+F 3 "~" H 8900 8900 50  0001 C CNN
+	1    8900 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J25
+U 1 1 61DF1170
+P 8900 8650
+F 0 "J25" H 9006 8828 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 8737 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 8650 50  0001 C CNN
+F 3 "~" H 8900 8650 50  0001 C CNN
+	1    8900 8650
+	1    0    0    -1  
+$EndComp
+$Comp
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0104
+U 1 1 61DF127E
+P 9350 9550
+F 0 "#PWR0104" H 9350 9300 50  0001 C CNN
+F 1 "GND" H 9355 9377 50  0000 C CNN
+F 2 "" H 9350 9550 50  0001 C CNN
+F 3 "" H 9350 9550 50  0001 C CNN
+	1    9350 9550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 9550 9350 9400
+Wire Wire Line
+	9350 8650 9100 8650
+Wire Wire Line
+	9100 8900 9350 8900
+Connection ~ 9350 8900
+Wire Wire Line
+	9350 8900 9350 8650
+Wire Wire Line
+	9100 9150 9350 9150
+Connection ~ 9350 9150
+Wire Wire Line
+	9350 9150 9350 8900
+Wire Wire Line
+	9100 9400 9350 9400
+Connection ~ 9350 9400
+Wire Wire Line
+	9350 9400 9350 9150
+$Comp
+L Connector:Conn_01x01_Male J24
+U 1 1 6216A69B
+P 7550 10300
+F 0 "J24" H 7656 10478 50  0000 C CNN
+F 1 "TESTPOINT" H 7656 10387 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7550 10300 50  0001 C CNN
+F 3 "~" H 7550 10300 50  0001 C CNN
+	1    7550 10300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J29
+U 1 1 6216AAFF
+P 9550 10300
+F 0 "J29" H 9550 10400 50  0000 C CNN
+F 1 "TESTPOINT" H 9600 10200 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 9550 10300 50  0001 C CNN
+F 3 "~" H 9550 10300 50  0001 C CNN
+	1    9550 10300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9350 10300 9150 10300
+Wire Wire Line
+	7750 10300 7950 10300
 $EndSCHEMATC

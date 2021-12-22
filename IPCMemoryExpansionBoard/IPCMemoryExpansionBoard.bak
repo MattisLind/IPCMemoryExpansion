@@ -622,17 +622,17 @@ Text Label 1350 8600 0    50   ~ 0
 NBLD
 Text Label 1350 8700 0    50   ~ 0
 NBUD
-Text Label 1350 8500 0    50   ~ 0
-BRNW
 Text Label 1350 8300 0    50   ~ 0
+BRNW
+Text Label 1350 8400 0    50   ~ 0
 BNPS
 Text Label 2500 8500 0    50   ~ 0
 NLD
 Text Label 2500 8600 0    50   ~ 0
 NUD
-Text Label 2500 8400 0    50   ~ 0
-RNW
 Text Label 2500 8200 0    50   ~ 0
+RNW
+Text Label 2500 8300 0    50   ~ 0
 NPS
 $Comp
 L IPCMemoryExpansionBoard-rescue:GND-power #PWR0103
@@ -1666,7 +1666,7 @@ L IPCMemoryExpansionBoard-rescue:SW_DIP_x08-Switch SW1
 U 1 1 61598D25
 P 7150 9450
 F 0 "SW1" H 7150 10117 50  0000 C CNN
-F 1 "SW_DIP_x08" H 7150 10026 50  0000 C CNN
+F 1 "CONFIG SWITCH" H 7150 10026 50  0000 C CNN
 F 2 "Package_DIP:DIP-16_W7.62mm" H 7150 9450 50  0001 C CNN
 F 3 "" H 7150 9450 50  0001 C CNN
 	1    7150 9450
@@ -3474,11 +3474,11 @@ Wire Wire Line
 	1450 2300 2000 2300
 Wire Wire Line
 	1300 8700 1700 8700
-Text Label 1350 8400 0    50   ~ 0
+Text Label 1350 8500 0    50   ~ 0
 NBAS
 Wire Wire Line
 	2400 8600 2800 8600
-Text Label 2500 8300 0    50   ~ 0
+Text Label 2500 8400 0    50   ~ 0
 NAS
 Wire Wire Line
 	1050 8200 1700 8200
@@ -3543,7 +3543,7 @@ L Device:R_Network08 RN3
 U 1 1 6379F4A9
 P 3500 1150
 F 0 "RN3" V 2883 1150 50  0000 C CNN
-F 1 "R_Network08" V 2974 1150 50  0000 C CNN
+F 1 "3.9k" V 2974 1150 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 3975 1150 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 3500 1150 50  0001 C CNN
 	1    3500 1150
@@ -3554,7 +3554,7 @@ L Device:R_Network08 RN5
 U 1 1 6379FA12
 P 3500 3250
 F 0 "RN5" V 2883 3250 50  0000 C CNN
-F 1 "R_Network08" V 2974 3250 50  0000 C CNN
+F 1 "3.9k" V 2974 3250 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 3975 3250 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 3500 3250 50  0001 C CNN
 	1    3500 3250
@@ -3565,7 +3565,7 @@ L Device:R_Network08 RN9
 U 1 1 6379FCAE
 P 4300 3250
 F 0 "RN9" V 3683 3250 50  0000 C CNN
-F 1 "R_Network08" V 3774 3250 50  0000 C CNN
+F 1 "3.3k" V 3774 3250 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 4775 3250 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4300 3250 50  0001 C CNN
 	1    4300 3250
@@ -3576,7 +3576,7 @@ L Device:R_Network08 RN7
 U 1 1 6379FDD2
 P 4300 1150
 F 0 "RN7" V 3683 1150 50  0000 C CNN
-F 1 "R_Network08" V 3774 1150 50  0000 C CNN
+F 1 "3.3k" V 3774 1150 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 4775 1150 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4300 1150 50  0001 C CNN
 	1    4300 1150
@@ -3653,7 +3653,7 @@ L Device:R_Network08 RN4
 U 1 1 64E125F3
 P 3500 2200
 F 0 "RN4" V 2883 2200 50  0000 C CNN
-F 1 "R_Network08" V 2974 2200 50  0000 C CNN
+F 1 "3.9k" V 2974 2200 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 3975 2200 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 3500 2200 50  0001 C CNN
 	1    3500 2200
@@ -3664,7 +3664,7 @@ L Device:R_Network08 RN8
 U 1 1 64E125F9
 P 4300 2200
 F 0 "RN8" V 3683 2200 50  0000 C CNN
-F 1 "R_Network08" V 3774 2200 50  0000 C CNN
+F 1 "3.3k" V 3774 2200 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 4775 2200 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4300 2200 50  0001 C CNN
 	1    4300 2200
@@ -3723,7 +3723,7 @@ L Device:R_Network05 RN6
 U 1 1 65012228
 P 3600 6700
 F 0 "RN6" V 3183 6700 50  0000 C CNN
-F 1 "R_Network05" V 3274 6700 50  0000 C CNN
+F 1 "3.9k" V 3274 6700 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP6" V 3975 6700 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 3600 6700 50  0001 C CNN
 	1    3600 6700
@@ -3734,7 +3734,7 @@ L Device:R_Network05 RN10
 U 1 1 650123DE
 P 4500 6700
 F 0 "RN10" V 4917 6700 50  0000 C CNN
-F 1 "R_Network05" V 4826 6700 50  0000 C CNN
+F 1 "3.3k" V 4826 6700 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP6" V 4875 6700 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4500 6700 50  0001 C CNN
 	1    4500 6700
@@ -3750,11 +3750,11 @@ Wire Wire Line
 	3800 6800 4300 6800
 Wire Wire Line
 	4300 6900 3800 6900
-Text Label 3950 6500 0    50   ~ 0
-BNPS
-Text Label 3950 6700 0    50   ~ 0
-BRNW
 Text Label 3950 6600 0    50   ~ 0
+BNPS
+Text Label 3950 6500 0    50   ~ 0
+BRNW
+Text Label 3950 6700 0    50   ~ 0
 NBAS
 Text Label 3950 6900 0    50   ~ 0
 NBUD
@@ -3785,11 +3785,11 @@ Text Label 3150 7650 0    50   ~ 0
 NBLD
 Text Label 3150 7750 0    50   ~ 0
 NBUD
-Text Label 3150 7450 0    50   ~ 0
-NBAS
 Text Label 3150 7550 0    50   ~ 0
-BRNW
+NBAS
 Text Label 3150 7350 0    50   ~ 0
+BRNW
+Text Label 3150 7450 0    50   ~ 0
 BNPS
 $Comp
 L Connector:Conn_01x08_Male J11
@@ -3851,7 +3851,7 @@ L Device:R_Network08 RN12
 U 1 1 65A385DC
 P 5150 6400
 F 0 "RN12" V 4533 6400 50  0000 C CNN
-F 1 "R_Network08" V 4624 6400 50  0000 C CNN
+F 1 "3.9k" V 4624 6400 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 5625 6400 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 5150 6400 50  0001 C CNN
 	1    5150 6400
@@ -3862,7 +3862,7 @@ L Device:R_Network08 RN14
 U 1 1 65A385E2
 P 5950 6400
 F 0 "RN14" V 5333 6400 50  0000 C CNN
-F 1 "R_Network08" V 5424 6400 50  0000 C CNN
+F 1 "3.3k" V 5424 6400 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 6425 6400 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 5950 6400 50  0001 C CNN
 	1    5950 6400
@@ -3905,7 +3905,7 @@ L Device:R_Network08 RN11
 U 1 1 65A385F8
 P 4100 4650
 F 0 "RN11" V 3483 4650 50  0000 C CNN
-F 1 "R_Network08" V 3574 4650 50  0000 C CNN
+F 1 "3.9k" V 3574 4650 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 4575 4650 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4100 4650 50  0001 C CNN
 	1    4100 4650
@@ -3916,7 +3916,7 @@ L Device:R_Network08 RN13
 U 1 1 65A385FE
 P 4900 4650
 F 0 "RN13" V 4283 4650 50  0000 C CNN
-F 1 "R_Network08" V 4374 4650 50  0000 C CNN
+F 1 "3.3k" V 4374 4650 50  0000 C CNN
 F 2 "Resistor_THT:R_Array_SIP9" V 5375 4650 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4900 4650 50  0001 C CNN
 	1    4900 4650
@@ -4002,9 +4002,9 @@ Wire Wire Line
 Wire Wire Line
 	3850 7300 4150 7300
 Text Label 3900 7200 0    50   ~ 0
-NBDTACK
+DTACK
 Text Label 3900 7300 0    50   ~ 0
-NBIMA
+IMA
 $Comp
 L IPCMemoryExpansionBoard-rescue:GND-power #PWR0105
 U 1 1 65D2EC19
@@ -4357,7 +4357,7 @@ L Device:R_Pack04_SIP RN1
 U 1 1 68D1BF38
 P 2750 2150
 F 0 "RN1" V 2708 2355 50  0000 L CNN
-F 1 "R_Pack04_SIP" V 2100 1850 50  0000 L CNN
+F 1 "Resistor net 56 ohm" V 2100 1700 50  0000 L CNN
 F 2 "Resistor_THT:R_Array_SIP8" V 3425 2150 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 2750 2150 50  0001 C CNN
 	1    2750 2150
@@ -4372,7 +4372,7 @@ L Device:R_Pack04_SIP RN2
 U 1 1 69730444
 P 2750 3400
 F 0 "RN2" V 2708 3605 50  0000 L CNN
-F 1 "R_Pack04_SIP" V 2799 3605 50  0000 L CNN
+F 1 "Resistor net 56 ohm" V 2100 3050 50  0000 L CNN
 F 2 "Resistor_THT:R_Array_SIP8" V 3425 3400 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 2750 3400 50  0001 C CNN
 	1    2750 3400
@@ -4422,7 +4422,7 @@ L Device:R_Pack04_SIP RN15
 U 1 1 6B78C714
 P 2750 4650
 F 0 "RN15" V 2708 4855 50  0000 L CNN
-F 1 "R_Pack04_SIP" V 2799 4855 50  0000 L CNN
+F 1 "Resistor net 56 ohm" V 2799 4855 50  0000 L CNN
 F 2 "Resistor_THT:R_Array_SIP8" V 3425 4650 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 2750 4650 50  0001 C CNN
 	1    2750 4650
@@ -4449,7 +4449,7 @@ L Device:R_Pack04_SIP RN16
 U 1 1 6B8627C7
 P 4000 5600
 F 0 "RN16" V 3958 5805 50  0000 L CNN
-F 1 "R_Pack04_SIP" V 4049 5805 50  0000 L CNN
+F 1 "Resistor net 56 ohm" V 4049 5805 50  0000 L CNN
 F 2 "Resistor_THT:R_Array_SIP8" V 4675 5600 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/31509/csc.pdf" H 4000 5600 50  0001 C CNN
 	1    4000 5600
@@ -4569,4 +4569,104 @@ Text Label 2350 2650 0    50   ~ 0
 RD6
 Wire Wire Line
 	4800 6950 4800 6900
+$Comp
+L Connector:Conn_01x01_Male J28
+U 1 1 61D14167
+P 8900 9400
+F 0 "J28" H 9006 9578 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 9487 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 9400 50  0001 C CNN
+F 3 "~" H 8900 9400 50  0001 C CNN
+	1    8900 9400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J27
+U 1 1 61D1465E
+P 8900 9150
+F 0 "J27" H 9006 9328 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 9237 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 9150 50  0001 C CNN
+F 3 "~" H 8900 9150 50  0001 C CNN
+	1    8900 9150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J26
+U 1 1 61DF0FDD
+P 8900 8900
+F 0 "J26" H 9006 9078 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 8987 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 8900 50  0001 C CNN
+F 3 "~" H 8900 8900 50  0001 C CNN
+	1    8900 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J25
+U 1 1 61DF1170
+P 8900 8650
+F 0 "J25" H 9006 8828 50  0000 C CNN
+F 1 "TESTPOINT" H 9006 8737 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8900 8650 50  0001 C CNN
+F 3 "~" H 8900 8650 50  0001 C CNN
+	1    8900 8650
+	1    0    0    -1  
+$EndComp
+$Comp
+L IPCMemoryExpansionBoard-rescue:GND-power #PWR0104
+U 1 1 61DF127E
+P 9350 9550
+F 0 "#PWR0104" H 9350 9300 50  0001 C CNN
+F 1 "GND" H 9355 9377 50  0000 C CNN
+F 2 "" H 9350 9550 50  0001 C CNN
+F 3 "" H 9350 9550 50  0001 C CNN
+	1    9350 9550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9350 9550 9350 9400
+Wire Wire Line
+	9350 8650 9100 8650
+Wire Wire Line
+	9100 8900 9350 8900
+Connection ~ 9350 8900
+Wire Wire Line
+	9350 8900 9350 8650
+Wire Wire Line
+	9100 9150 9350 9150
+Connection ~ 9350 9150
+Wire Wire Line
+	9350 9150 9350 8900
+Wire Wire Line
+	9100 9400 9350 9400
+Connection ~ 9350 9400
+Wire Wire Line
+	9350 9400 9350 9150
+$Comp
+L Connector:Conn_01x01_Male J24
+U 1 1 6216A69B
+P 7550 10300
+F 0 "J24" H 7656 10478 50  0000 C CNN
+F 1 "TESTPOINT" H 7656 10387 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7550 10300 50  0001 C CNN
+F 3 "~" H 7550 10300 50  0001 C CNN
+	1    7550 10300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J29
+U 1 1 6216AAFF
+P 9550 10300
+F 0 "J29" H 9550 10400 50  0000 C CNN
+F 1 "TESTPOINT" H 9600 10200 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 9550 10300 50  0001 C CNN
+F 3 "~" H 9550 10300 50  0001 C CNN
+	1    9550 10300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	9350 10300 9150 10300
+Wire Wire Line
+	7750 10300 7950 10300
 $EndSCHEMATC
