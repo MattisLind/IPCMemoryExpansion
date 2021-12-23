@@ -1,0 +1,16 @@
+usbd_storage_if.c:172:6:deInitPins	8	static
+usbd_storage_if.c:190:6:initPins	32	static
+usbd_storage_if.c:237:6:setYellow	8	static
+usbd_storage_if.c:241:6:clearYellow	8	static
+usbd_storage_if.c:245:6:setRed	8	static
+usbd_storage_if.c:249:6:clearRed	8	static
+usbd_storage_if.c:253:6:flashSectorErase	16	static
+usbd_storage_if.c:270:6:flashWordProgram	16	static
+usbd_storage_if.c:286:6:flashBufferProgram	24	static
+usbd_storage_if.c:331:8:STORAGE_Init_FS	16	static
+usbd_storage_if.c:345:8:STORAGE_GetCapacity_FS	24	static
+usbd_storage_if.c:359:8:STORAGE_IsReady_FS	16	static
+usbd_storage_if.c:371:8:STORAGE_IsWriteProtected_FS	16	static
+usbd_storage_if.c:383:8:STORAGE_Read_FS	40	static
+usbd_storage_if.c:424:8:STORAGE_Write_FS	8280	static
+usbd_storage_if.c:500:8:STORAGE_GetMaxLun_FS	4	static

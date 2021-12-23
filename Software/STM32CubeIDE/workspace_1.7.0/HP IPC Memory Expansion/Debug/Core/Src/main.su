@@ -1,0 +1,8 @@
+main.c:75:6:blinkGreenTwice	8	static
+main.c:86:6:blinkRedOnce	8	static
+main.c:93:6:blinkYellowOnce	8	static
+main.c:102:6:putStr	16	static
+main.c:112:5:main	8	static
+main.c:167:6:SystemClock_Config	88	static
+main.c:218:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:235:6:Error_Handler	4	static,ignoring_inline_asm

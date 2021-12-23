@@ -1,0 +1,15 @@
+!SESSION 2021-12-23 12:33:55.880 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-12-23 12:34:31.733
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-12-23 12:34:31.808
+!MESSAGE Log4j initialized with config file /home/mattis/STM32CubeIDE/workspace_1.7.0/HP IPC Memory Expansion/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-12-23 12:34:35.813
+!MESSAGE Started RMI Server, listening on port 41337
