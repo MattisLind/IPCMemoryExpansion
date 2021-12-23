@@ -30,12 +30,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity main is
-    Port ( ADRIN : std_logic_vector(4 downto 0) := (others => '0');
-           NLD : in  STD_LOGIC;
-           NUD : in  STD_LOGIC;
+    Port ( ADRIN : std_logic_vector(4 downto 0);
            NPS : in  STD_LOGIC;
            RNW : in  STD_LOGIC;
-           FLASH_RY : in  STD_LOGIC;
+           NAS : in  STD_LOGIC;
+			  FLASH_RY : in STD_LOGIC;
            STM32_BUSEN : in  STD_LOGIC;
            DIPSW0 : in  STD_LOGIC;
            DIPSW1 : in  STD_LOGIC;
@@ -53,40 +52,28 @@ entity main is
            D1 : out  STD_LOGIC;
            D2 : out  STD_LOGIC;
            D3 : out  STD_LOGIC;
+			  D6 : out  STD_LOGIC;
            D7 : out  STD_LOGIC;
-			  ROMADR : out std_logic_vector(3 downto 0) := (others => '0');
+			  ROMADR : out std_logic_vector(3 downto 0);
            OE245 : out  STD_LOGIC);
 end main;
+
 
 architecture Behavioral of main is
 
 begin
 
-logic: PROCESS (ADRIN, NLD, NUD, NPS, RNW, FLASH_RY, STM32_BUSEN, DIPSW0, DIPSW1, DIPSW2, DIPSW3, DIPSW4, DIPSW5)
+logic: PROCESS (ADRIN, NPS, RNW, STM32_BUSEN, DIPSW0, DIPSW1, DIPSW2, DIPSW3, DIPSW4, DIPSW5, NAS, FLASH_RY)
 VARIABLE vNCEROM, vIMA, vDS, vNCERAM, vNWE, vNOE, vDTACK : STD_LOGIC;
-VARIABLE vROMADR : std_logic_vector(3 downto 0) := (others => '0');
+VARIABLE vROMADR : std_logic_vector(3 downto 0);
 BEGIN
 		vNCEROM := '1';
+		vNWE := '1';
 		vNCERAM := '1';
-      vROMADR := "ZZZZ";
 		vDS := '0';
 		vIMA := '0';
 		vDTACK := '0';
-		IF (NLD = '0' OR NUD = '0') THEN
-		  vDS := '1';
-		END IF;
-		
-		IF (RNW = '1' AND vDS = '1') THEN
-		  vNOE := '0';
-		ELSE 
-		  vNOE := '1';
-		END IF;
-		
-		IF (RNW = '0' AND vDS = '1') THEN
-		  vNWE := '0';
-		ELSE
-		  vNWE := '1';
-		END IF;
+		vROMADR := "0000";
 -- RAM FROM 0x0800000 to 0x0E00000		
 		IF ((ADRIN >= "10000") AND  (ADRIN <= "11101" )) THEN
 		  vNCERAM := '0';
@@ -113,21 +100,21 @@ BEGIN
 	     vROMADR := "0011";
 		END IF;
 -- SE ROM 		
-		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00010") THEN
+		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00100") THEN
 		  vNCEROM := '0';
 	     vROMADR := "0100";
 		END IF;		
 		
-		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00011") THEN
+		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00101") THEN
 		  vNCEROM := '0';
 	     vROMADR := "0101";
 		END IF;	
-		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00100") THEN
+		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00110") THEN
 		  vNCEROM := '0';
 	     vROMADR := "0110";
 		END IF;		
 		
-		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00101") THEN
+		IF ( DIPSW3 = '0' AND DIPSW4 = '0' AND ADRIN = "00111") THEN
 		  vNCEROM := '0';
 	     vROMADR := "0111";
 		END IF;		
@@ -170,20 +157,34 @@ BEGIN
 	     vROMADR := "1111";
 		END IF;	
 
+		IF (RNW = '1' AND NAS = '0' AND (vNCERAM = '0' OR vNCEROM = '0')) THEN
+		  vNOE := '0';
+		ELSE 
+		  vNOE := '1';
+		END IF;
+		
+		IF (RNW = '0' AND NAS = '0' AND (vNCERAM = '0' OR vNCEROM = '0')) THEN
+		  vNWE := '0';
+		ELSE
+		  vNWE := '1';
+		END IF;
+
+
 -- IMA SIGNAL - ALSO USED AS DTACK WHEN BOARD IS ACCESSED		
-		IF ((vNCEROM = '0' OR vNCERAM = '0' OR NPS = '0') AND vDS = '1') THEN
+		IF ((vNCEROM = '0' OR vNCERAM = '0' OR NPS = '0') AND NAS = '0') THEN
          vIMA := '1';
 			vDTACK := '1';
 		END IF;
 
 -- THE ID PORT AND READY SIGNAL FROM FLASH IS ENABLED WHEN THE BOARD IS ACCESSED BY THE NPS SIGNAL	IN READ MODE	
-		IF (STM32_BUSEN = '1') THEN
-			IF (NPS = '0' AND NLD = '0' AND RNW = '1') THEN
+		IF (STM32_BUSEN = '0') THEN
+			IF (NPS = '0' AND NAS = '0' AND RNW = '1') THEN
 			    D0 <= '1';
 			    D1 <= '1';
 			    D2 <= '1';
 			    D3 <= '1';
-			    D7 <= FLASH_RY;
+			    D6 <= FLASH_RY;
+			    D7 <= '1';
 				 vNOE := 'Z';
 				 vNCEROM := 'Z';
 				 vNCERAM := 'Z';
@@ -193,6 +194,7 @@ BEGIN
 				 D1 <= 'Z';
 				 D2 <= 'Z';
 				 D3 <= 'Z';
+				 D6 <= 'Z';
 				 D7 <= 'Z';
 			END IF;
 	   ELSE 
@@ -200,10 +202,11 @@ BEGIN
 		  D1 <= 'Z';
 		  D2 <= 'Z';
 		  D3 <= 'Z';
+		  D6 <= 'Z';
 		  D7 <= 'Z';
 		END IF;
 -- ENABLE 245 DATA BUS IF NOT STM32 ACTIVE. IF BOARD IS ADDRESSED ENABLE DRIVERS.		
-		IF (STM32_BUSEN = '1') THEN		
+		IF (STM32_BUSEN = '0') THEN		
 		   IF (vIMA = '1') THEN 
 		     OE245 <= '0';	
 			ELSE 

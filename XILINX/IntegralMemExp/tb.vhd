@@ -42,8 +42,7 @@ ARCHITECTURE behavior OF tb IS
     COMPONENT main
     PORT(
          ADRIN : IN  std_logic_vector(4 downto 0);
-         NLD : IN  std_logic;
-         NUD : IN  std_logic;
+			NAS :  IN std_logic;
          NPS : IN  std_logic;
          RNW : IN  std_logic;
          FLASH_RY : IN  std_logic;
@@ -64,6 +63,7 @@ ARCHITECTURE behavior OF tb IS
          D1 : OUT  std_logic;
          D2 : OUT  std_logic;
          D3 : OUT  std_logic;
+			D6 : OUT  std_logic;
          D7 : OUT  std_logic;
          ROMADR : OUT  std_logic_vector(3 downto 0);
          OE245 : OUT  std_logic
@@ -73,12 +73,11 @@ ARCHITECTURE behavior OF tb IS
 
    --Inputs
    signal ADRIN : std_logic_vector(4 downto 0) := (others => '0');
-   signal NLD : std_logic := '0';
-   signal NUD : std_logic := '0';
+   signal NAS : std_logic := '0';
    signal NPS : std_logic := '0';
    signal RNW : std_logic := '0';
    signal FLASH_RY : std_logic := '0';
-   signal STM32_BUSEN : std_logic := '0';
+   signal STM32_BUSEN : std_logic := '1';
    signal DIPSW0 : std_logic := '0';
    signal DIPSW1 : std_logic := '0';
    signal DIPSW2 : std_logic := '0';
@@ -97,6 +96,7 @@ ARCHITECTURE behavior OF tb IS
    signal D1 : std_logic;
    signal D2 : std_logic;
    signal D3 : std_logic;
+	signal D6 : std_logic;
    signal D7 : std_logic;
    signal ROMADR : std_logic_vector(3 downto 0);
    signal OE245 : std_logic;
@@ -109,8 +109,7 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: main PORT MAP (
           ADRIN => ADRIN,
-          NLD => NLD,
-          NUD => NUD,
+          NAS => NAS,
           NPS => NPS,
           RNW => RNW,
           FLASH_RY => FLASH_RY,
@@ -131,6 +130,7 @@ BEGIN
           D1 => D1,
           D2 => D2,
           D3 => D3,
+			 D6 => D6,
           D7 => D7,
           ROMADR => ROMADR,
           OE245 => OE245
@@ -147,12 +147,11 @@ BEGIN
 		DIPSW3 <= '0';
 		DIPSW4 <= '0';
 		DIPSW5 <= '0';
-		NLD <= '0';
-		NUD <= '0';
+		NAS <= '0';
 		NPS <= '1';
       RNW <= '1';
       FLASH_RY <= '1';
-      STM32_BUSEN <= '1';
+      STM32_BUSEN <= '0';
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '0') report "NCEROM should have been 0." severity error;
@@ -164,62 +163,12 @@ BEGIN
 		assert (D1 = 'Z') report "D1 should have been Z." severity error;
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
+		assert (D6 = 'Z') report "D6 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;
 		wait for 10 ns;		
-		ADRIN <= "00000";
-		NLD <= '1';
-		NUD <= '0';
-		wait for 10 ns;
-		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
-		assert (NCEROM = '0') report "NCEROM should have been 0." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
-		assert (NWE = '1') report "NWE should have been 1." severity error;
-		assert (IMA = '1') report "IMA should have been 1." severity error;
-		assert (DTACK = '1') report "DTACK should have been 1." severity error;
-		assert (D0 = 'Z') report "D0 should have been Z." severity error;
-		assert (D1 = 'Z') report "D1 should have been Z." severity error;
-		assert (D2 = 'Z') report "D2 should have been Z." severity error;
-		assert (D3 = 'Z') report "D3 should have been Z." severity error;
-		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
-		assert (OE245 = '0') report "OE245 should have been 0." severity error;
-		wait for 10 ns;
-		NLD <= '0';
-		NUD <= '1';
-		wait for 10 ns;
-		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
-		assert (NCEROM = '0') report "NCEROM should have been 0." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
-		assert (NWE = '1') report "NWE should have been 1." severity error;
-		assert (IMA = '1') report "IMA should have been 1." severity error;
-		assert (DTACK = '1') report "DTACK should have been 1." severity error;
-		assert (D0 = 'Z') report "D0 should have been Z." severity error;
-		assert (D1 = 'Z') report "D1 should have been Z." severity error;
-		assert (D2 = 'Z') report "D2 should have been Z." severity error;
-		assert (D3 = 'Z') report "D3 should have been Z." severity error;
-		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
-		assert (OE245 = '0') report "OE245 should have been 0." severity error;		
-		NLD <= '1';
-		NUD <= '1';
-		wait for 10 ns;
-		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
-		assert (NCEROM = '0') report "NCEROM should have been 0." severity error;
-		assert (NOE = '1') report "NOE should have been 1." severity error;
-		assert (NWE = '1') report "NWE should have been 1." severity error;
-		assert (IMA = '0') report "IMA should have been 0." severity error;
-		assert (DTACK = '0') report "DTACK should have been 0." severity error;
-		assert (D0 = 'Z') report "D0 should have been Z." severity error;
-		assert (D1 = 'Z') report "D1 should have been Z." severity error;
-		assert (D2 = 'Z') report "D2 should have been Z." severity error;
-		assert (D3 = 'Z') report "D3 should have been Z." severity error;
-		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
-		assert (OE245 = '1') report "OE245 should have been 1." severity error;	
 -- TEST WRITE
-		NLD <= '0';
 		RNW <= '0';
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
@@ -232,6 +181,7 @@ BEGIN
 		assert (D1 = 'Z') report "D1 should have been Z." severity error;
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
+		assert (D6 = 'Z') report "D6 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;	
@@ -251,6 +201,7 @@ BEGIN
 		assert (D1 = '1') report "D1 should have been 1." severity error;
 		assert (D2 = '1') report "D2 should have been 1." severity error;
 		assert (D3 = '1') report "D3 should have been 1." severity error;
+		assert (D6 = '1') report "D6 should have been Z." severity error;
 		assert (D7 = '1') report "D7 should have been 1." severity error;
 		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;	
@@ -266,7 +217,8 @@ BEGIN
 		assert (D1 = '1') report "D1 should have been 1." severity error;
 		assert (D2 = '1') report "D2 should have been 1." severity error;
 		assert (D3 = '1') report "D3 should have been 1." severity error;
-		assert (D7 = '0') report "D7 should have been 1." severity error;
+		assert (D6 = '0') report "D6 should have been Z." severity error;
+		assert (D7 = '1') report "D7 should have been 1." severity error;
 		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;
 -- TEST ADRESSING 000000 - 07FFFF DIPSW0 = 0 DIPSW1 = 1 SYS III ROM
@@ -284,6 +236,7 @@ BEGIN
 		assert (D1 = 'Z') report "D1 should have been Z." severity error;
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
+		assert (D6 = 'Z') report "D6 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0001") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;		
@@ -303,6 +256,7 @@ BEGIN
 		assert (D1 = 'Z') report "D1 should have been Z." severity error;
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
+		assert (D6 = 'Z') report "D6 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0010") report "ROMADR should have been 0010." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;	
@@ -315,7 +269,7 @@ BEGIN
 		report "TEST ADRESSING 000000 - 07FFFF DIPSW0 = 1 DIPSW1 = 1 ROM Disabled use internal ROM cart.";
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 1." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -323,6 +277,7 @@ BEGIN
 		assert (D1 = 'Z') report "D1 should have been Z." severity error;
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
+		assert (D6 = 'Z') report "D6 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;		
@@ -332,7 +287,7 @@ BEGIN
 		report "TEST ADRESSING 080000 - 0FFFFF DIPSW2 = 0 Region disabled";
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 1." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -340,8 +295,9 @@ BEGIN
 		assert (D1 = 'Z') report "D1 should have been Z." severity error;
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
+		assert (D6 = 'Z') report "D6 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
+		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;
 -- TEST ADDRESSING 080000 -0FFFFF DIPSW2 = 1 BASIC ROM ENABLED
 		NPS <= '1';
@@ -359,11 +315,12 @@ BEGIN
 		assert (D1 = 'Z') report "D1 should have been Z." severity error;
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
+		assert (D6 = 'Z') report "D6 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0011") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;		
--- TEST ADRESSING 100000 - 2FFFFF DIPSW3 = 0	DIPSW4 = 0 Software engineering ROM	
-		ADRIN <= "00010";
+-- TEST ADRESSING 200000 - 3FFFFF DIPSW3 = 0	DIPSW4 = 0 Software engineering ROM	
+		ADRIN <= "00100";
 		DIPSW3 <= '0';
 		DIPSW4 <= '0';
 		wait for 10 ns;
@@ -381,7 +338,7 @@ BEGIN
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0100") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;
-		ADRIN <= "00011";
+		ADRIN <= "00101";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '0') report "NCEROM should have been 0." severity error;
@@ -396,7 +353,7 @@ BEGIN
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0101") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;	
-		ADRIN <= "00100";
+		ADRIN <= "00110";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '0') report "NCEROM should have been 0." severity error;
@@ -411,7 +368,7 @@ BEGIN
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
 		assert (ROMADR = "0110") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '0') report "OE245 should have been 0." severity error;	
-		ADRIN <= "00101";
+		ADRIN <= "00111";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '0') report "NCEROM should have been 0." severity error;
@@ -501,7 +458,7 @@ BEGIN
 		report "TEST ADRESSING 100000 - 2FFFFF DIPSW3 = 0 DIPSW4 = X Disabled";
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -510,13 +467,13 @@ BEGIN
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
+		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;
 		ADRIN <= "00011";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -525,13 +482,13 @@ BEGIN
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
+		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;	
 		ADRIN <= "00100";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 0." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -540,13 +497,13 @@ BEGIN
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
+		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;	
 		ADRIN <= "00101";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -555,7 +512,7 @@ BEGIN
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
+		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;		
 -- TEST ADRESSING 300000 - 4FFFFF DIPSW5=0 Disabled 		
 		ADRIN <= "00110";
@@ -563,7 +520,7 @@ BEGIN
 		report "TEST ADRESSING 300000 - 4FFFFF DIPSW5 = 0 Disabled";
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -572,13 +529,13 @@ BEGIN
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
+		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;		
 		ADRIN <= "00111";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -587,13 +544,13 @@ BEGIN
 		assert (D2 = 'Z') report "D2 should have been Z." severity error;
 		assert (D3 = 'Z') report "D3 should have been Z." severity error;
 		assert (D7 = 'Z') report "D7 should have been Z." severity error;
-		assert (ROMADR = "ZZZZ") report "ROMADR should have been ZZZZ." severity error;
+		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;		
 		ADRIN <= "01000";
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -608,7 +565,7 @@ BEGIN
 		wait for 10 ns;
 		assert (NCERAM = '1') report "NCERAM should have been 1." severity error;
 		assert (NCEROM = '1') report "NCEROM should have been 1." severity error;
-		assert (NOE = '0') report "NOE should have been 0." severity error;
+		assert (NOE = '1') report "NOE should have been 1." severity error;
 		assert (NWE = '1') report "NWE should have been 1." severity error;
 		assert (IMA = '0') report "IMA should have been 0." severity error;
 		assert (DTACK = '0') report "DTACK should have been 0." severity error;
@@ -1079,7 +1036,7 @@ BEGIN
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;
 
 		ADRIN <= "00000";
-		STM32_BUSEN <= '0';
+		STM32_BUSEN <= '1';
 		wait for 10 ns;
 		report "TEST STM32 MEMORY ACCESS.";
 		assert (NCERAM = 'Z') report "NCERAM should have been Z." severity error;
@@ -1096,7 +1053,7 @@ BEGIN
 		assert (ROMADR = "0000") report "ROMADR should have been 0000." severity error;
 		assert (OE245 = '1') report "OE245 should have been 1." severity error;
 		ADRIN <= "01111";
-		STM32_BUSEN <= '0';
+		STM32_BUSEN <= '1';
 		wait for 10 ns;
 		report "TEST STM32 MEMORY ACCESS.";
 		assert (NCERAM = 'Z') report "NCERAM should have been Z." severity error;
