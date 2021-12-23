@@ -148,7 +148,7 @@ void FSMC_setup(void){
     //FSMC_Bank1->BTCR[7] &= ~(FSMC_BTR1_BUSTURN_0 | FSMC_BTR1_BUSTURN_1 | FSMC_BTR1_BUSTURN_2 |FSMC_BTR1_BUSTURN_3);
 }
 
-
+int toggle = 1;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -158,11 +158,17 @@ void setup() {
   pinMode(PG8, OUTPUT);
   pinMode(PG13, OUTPUT);
   pinMode(PD6, INPUT);
+  pinMode(PG10, INPUT);
+  pinMode(PG12, INPUT);
+  pinMode(PD4, INPUT);
+  pinMode(PD5, INPUT);
+  pinMode(PE0, INPUT);
+  pinMode(PE1, INPUT);
   //pinMode(PD8, INPUT_PULLDOWN);
   //digitalWrite(PD8,LOW);
   Serial.begin(9600);
-  digitalWrite(PG13, LOW);  // Enable the STM32 on the bus. Disable LVC245 drivers.
-  FSMC_setup();
+  digitalWrite(PG13, toggle);  // Enable the STM32 on the bus. Disable LVC245 drivers.
+  //FSMC_setup();
   Serial.write("IPCMEMTESTER> ");
 }
 
@@ -370,8 +376,33 @@ void loop() {
           Serial.println("A - Flash test");
           Serial.println("B - SRAM test");
           Serial.println("G - Flash blank check");
+          Serial.println("R - Read pins");
+          Serial.println("U - Toggle STM32_BUSEN");
           Serial.println();
           Serial.write("IPCMEMTESTER> ");
+          break;
+        case 'R':
+          Serial.println();
+          Serial.print("NCEROM: ");
+          Serial.println(digitalRead(PG12), DEC); 
+          Serial.print("NCERAM: ");
+          Serial.println(digitalRead(PG10), DEC);
+          Serial.print("NWE: ");
+          Serial.println(digitalRead(PD5), DEC);
+          Serial.print("NOE: ");
+          Serial.println(digitalRead(PD4), DEC);                              
+          Serial.print("NLD: ");
+          Serial.println(digitalRead(PE0), DEC);                              
+          Serial.print("NUD: ");
+          Serial.println(digitalRead(PE1), DEC); 
+          Serial.println();
+          Serial.write("IPCMEMTESTER> ");
+          break;  
+        case 'U':
+           digitalWrite(PG13, toggle ^= 1);   
+           Serial.println(); 
+           Serial.write("IPCMEMTESTER> ");
+           break;                       
         case 'A':
           Serial.println();
           flashTest();
