@@ -55,7 +55,7 @@ A Xilinx XC2C32A CPLD is used for all address decoding and ROM remapping. The VH
 
 Obviously when testing the board for the first time it didn't work at all. Of course I tested many different ways to get it working. But in the end I think that one main problem was the use of UDS/LDS instead of AS strobe. On the standard 68000 that would probably have worked just fine. But on the HP Integral he AS strobe is not at all the AS strobe from the processor. It has gone through plenty of logic until the AS signal found in the expasion connector is generated. Thus the use of the AS signal is a must. Gating with that signal made the RAM expansio work fine.
 
-Since the 74LVC245 inputs are CMOS there wil be no current flowing towards the expansion board. When I attached a bus extender board to be able to measure on the board the added buslength seemed to cause trouble. Adding bus terminating resistors at the 74LVC245 inputs seemed to fix the issue. To better adapt the 74LVC254 driver to the bus impedance a low ohm resistor was inserted in the bus line path for the data bus.
+Since the 74LVC245 inputs are CMOS there wil be no current flowing towards the expansion board. When I attached a bus extender board to be able to measure on the board the added buslength seemed to cause trouble. Adding bus terminating resistors at the 74LVC245 inputs seemed to fix the issue. To better adapt the 74LVC245 driver to the bus impedance a low ohm resistor was inserted in the bus line path for the data bus.
 
 All these changes resulted in a second spin of the board.
 
