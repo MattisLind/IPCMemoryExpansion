@@ -8,40 +8,6 @@ The computer has a two expansion slot where various peripherals can be installed
 
 The project aims at creating a 7M RAM and 8M ROM memory expansion to the HP Integral computer. RAM is implemented using a single SRAM chip and ROM is implemented using a single NOR FLASH ROM chip. DIP-switches are used to map the ROM into the various ROM areas of the Integral.
 
-
-## ROM
-The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
-
-| Integral address range | DIPSW0 | DIPSW1 | DIPSW2 | DIPSW3 | DIPSW4 | DIPSW5 | Flash memory range | Used for |
-|------------------------|--------|--------|--------|--------|--------|--------|--------------------|----------|
-| 000000 - 07FFFF        |   0    |   0    |   X    |   X    |   X    |   X    |  000000-07FFFF     | SYS V ROM|
-| 000000 - 07FFFF        |   0    |   1    |   X    |   X    |   X    |   X    |  080000-0FFFFF     | DiagA ROM|
-| 000000 - 07FFFF        |   1    |   0    |   X    |   X    |   X    |   X    |  100000-17FFFF     | DiagB ROM|
-| 000000 - 07FFFF        |   1    |   1    |   X    |   X    |   X    |   X    |  NONE    | Internal ROM used |
-| 080000 - 0FFFFF        |   X    |   X    |   0    |   X    |   X    |   X    |  NONE     | NONE |
-| 080000 - 0FFFFF        |   X    |   X    |   1    |   X    |   X    |   X    |  180000-1FFFFF     | BASIC ROM |
-| 100000 - 1FFFFF        |   X    |   X    |   X    |   X    |   X    |   0    |  NONE              |           |
-| 100000 - 1FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  600000-6FFFFF     | AUX ROM 3|
-| 200000 - 3FFFFF        |   X    |   X    |   X    |   0    |   0    |   X    |  200000-3FFFFF     | SE ROM |
-| 200000 - 3FFFFF        |   X    |   X    |   X    |   0    |   1    |   X    |  400000-5FFFFF     | AUX ROM 1|
-| 200000 - 3FFFFF        |   X    |   X    |   X    |   1    |   X    |   X    |  NONE     | NONE |
-| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   0    |  NONE     | NONE |
-| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   1    |  700000-7FFFFF     | AUX ROM 2 |
-
-There is a STM32F407ZET SoC makes the board look like a USB stick when the USB port is connected to a host computer. 
-
-The ROM is implemented in one single 8 Mbyte SST38VF6401 chip.
-
-DIPSW7 is used for enabling and disabling the busdrivers and DIPSW6 is connected to RESET of the processor. Thus the processort portion can be completely disabled when both these switches are pushed down (on). They should be in the UP (off) position so that the processor runs and can access the memory when trying to upload to the flash memory onboard. When used in the Integral PC they should be in the DOWN (on) position to stop the processor and disable processor access to the memory.
-
-## RAM
-
-Normally Integral memory is implemented using memory board sized up to 1 MByte. Each memory board responds to a read port which provide an ID for the board and a writable base address register. The Integral will use these to identfiy each memory board and configure its starting address. However the memory sizing of HP-UX system is completely independent of the memory configuration descibed preiously meaning that these configuaration is not necessary to get the INtegral to detect the full memory. This has been verified using the MAME emulation of the Integral.
-
-All this obviously that it would be very much easier to implement a RAM expansion board since it only requires that it would match the RAM address range 800000-EFFFFF.
-
-The RAM is implemented in one single AS6C6416 4M x 16 SRAM memory chip. 
-
 ## Levelshifting
 
 All signals are level shifted from 5V TTL to 3.3V LVTTL using six 74LVC245 which has 5V tolerant inputs. The two open-collector signals, NBDTACK and NBIMA is handled by 1 74LS38 chip.
@@ -49,6 +15,47 @@ All signals are level shifted from 5V TTL to 3.3V LVTTL using six 74LVC245 which
 ## Address decoding
 
 A Xilinx XC2C32A CPLD is used for all address decoding and ROM remapping. The VHDL is provided [here](https://raw.githubusercontent.com/MattisLind/IPCMemoryExpansion/main/XILINX/IntegralMemExp/main.vhd).
+
+## DIPSWITCH
+
+The board is using a piano-type dipswitch for easy access from the side. When the switch is in the up position in corresponds to the off condition or digital 1 signal. When the switch is in the down position this corresponds to a on condition or 0 signal. X means that the position of the switch is irrelevant.
+
+DIPSW0 to DIPSW5 is used for controlling the ROM mapping in the address space.
+
+DIPSW7 is used for enabling and disabling the busdrivers and DIPSW6 is connected to RESET of the processor. Thus the processor portion can be completely disabled when both these switches are pushed down (on). They should be in the UP (off) position so that the processor runs and can access the memory when trying to upload to the flash memory onboard. When used in the Integral PC they should be in the DOWN (on) position to stop the processor and disable processor access to the memory.
+
+## ROM
+The mapping of the FLASH ROM memory is controlled by six dipswitches as follows:
+
+| Integral address range | DIPSW0 | DIPSW1 | DIPSW2 | DIPSW3 | DIPSW4 | DIPSW5 | Flash memory range | Used for |
+|------------------------|--------|--------|--------|--------|--------|--------|--------------------|----------|
+| 000000 - 07FFFF        |   Down(0)    |   Down(0)    |   X    |   X    |   X    |   X    |  000000-07FFFF     | SYS V ROM|
+| 000000 - 07FFFF        |   Down(0)    |   Up(1)    |   X    |   X    |   X    |   X    |  080000-0FFFFF     | DiagA ROM|
+| 000000 - 07FFFF        |   Up(1)    |   Down(0)    |   X    |   X    |   X    |   X    |  100000-17FFFF     | DiagB ROM|
+| 000000 - 07FFFF        |   Up(1)    |   Up(1)    |   X    |   X    |   X    |   X    |  NONE    | Internal ROM used |
+| 080000 - 0FFFFF        |   X    |   X    |   Down(0)    |   X    |   X    |   X    |  NONE     | NONE |
+| 080000 - 0FFFFF        |   X    |   X    |   Up(1)    |   X    |   X    |   X    |  180000-1FFFFF     | BASIC ROM |
+| 100000 - 1FFFFF        |   X    |   X    |   X    |   X    |   X    |   Down(0)    |  NONE              |           |
+| 100000 - 1FFFFF        |   X    |   X    |   X    |   X    |   X    |   Up(1)    |  600000-6FFFFF     | AUX ROM 3|
+| 200000 - 3FFFFF        |   X    |   X    |   X    |   Down(0)    |   Down(0)    |   X    |  200000-3FFFFF     | SE ROM |
+| 200000 - 3FFFFF        |   X    |   X    |   X    |   Down(0)    |   Up(1)    |   X    |  400000-5FFFFF     | AUX ROM 1|
+| 200000 - 3FFFFF        |   X    |   X    |   X    |   Up(1)    |   X    |   X    |  NONE     | NONE |
+| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   Down(0)    |  NONE     | NONE |
+| 300000 - 4FFFFF        |   X    |   X    |   X    |   X    |   X    |   Up(1)    |  700000-7FFFFF     | AUX ROM 2 |
+
+There is a STM32F407ZET SoC makes the board look like a USB stick when the USB port is connected to a host computer. 
+
+The ROM is implemented in one single 8 Mbyte SST38VF6401 chip.
+
+## RAM
+
+Normally Integral memory is implemented using memory board sized up to 1 MByte. Each memory board responds to a read port which provide an ID for the board and a writable base address register. The Integral will use these to identfiy each memory board and configure its starting address. However the memory sizing of HP-UX system is completely independent of the memory configuration descibed preiously meaning that these configuaration is not necessary to get the Integral to detect the full memory. This has been verified using the MAME emulation of the Integral.
+
+All this obviously that it would be very much easier to implement a RAM expansion board since it only requires that it would match the RAM address range 800000-EFFFFF.
+
+The RAM is implemented in one single AS6C6416 4M x 16 SRAM memory chip. 
+
+
 
 ## Testing and design fault finding.
 
