@@ -84,7 +84,7 @@ Thus this command is needed to write the flash:
 ```
 sudo dd if=flash_image.bin of=/dev/sd<x> bs=1k seek=8192
 ```
-where /dev/sd<x> is the device that is allocated for the mass storage device that the board is acting as. Check using ```dmesg``` what device is created when it is plugged into the USB-port.
+where ```/dev/sd<x>``` is the device that is allocated for the mass storage device that the board is acting as. Check using ```dmesg``` what device is created when it is plugged into the USB-port.
 
 
 ## Schematic 
