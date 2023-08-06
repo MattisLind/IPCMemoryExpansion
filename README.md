@@ -71,7 +71,8 @@ All these changes resulted in a second spin of the board.
 
 Spin 1 became quite messy when trying to fix all small problems so I decided on a spin 2. I also added test points to make it easier to measure on the board, a major issue on the first spin was that it was so hard to take measurements. After spin 2 came back from the JLCPCB I found that it was virtually impossible to get hold of the STM32 chip and the CPLD, so the project got dormant until sping 2023 when I eventually was able to order chips.
 
-There were some small changes made to the CPLD VHDL code for spin 2 which to this date has not yet been tested (2023-07-24). I hope to be able to test the board soon.
+There were some small changes made to the CPLD VHDL code for spin 2 ~~which to this date has not yet been tested (2023-07-24). I hope to be able to test the board soon.~~
+Spin 2 has now been tested and appears to work correctly. Follow instructions further down to install the board.
 
 ## Firmware
 
