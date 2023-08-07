@@ -119,6 +119,12 @@ where ```/dev/sd<x>``` is the device that is allocated for the mass storage devi
 
 ![Schematic](https://raw.githubusercontent.com/MattisLind/IPCMemoryExpansion/main/IPCMemoryExpansionBoard/IPCMemoryExpansionBoard.png)
 
+## Install instructions by Carl Claunch
+
+After spin 1 was completed I was not able to get components for spin 2 although the board had been fabricated. All this due to the post-covid semiconductor crunch. In July 2023 I got contacted by Carl who had been asked to help out to do the installation of the firmware. As we sorted out how topoerform the steps (which I had more or less forgotten since I initially designed it) he created a nice document which describes the steps do be done. I link it below:
+
+[Install instructions by Carl Claunch](https://github.com/MattisLind/IPCMemoryExpansion/blob/main/HP%20Integral%20board%20instructions.pdf)
+
 ## Links
 
 [HP Museum page on the Integral PC](http://www.hpmuseum.net/display_item.php?hw=122)
