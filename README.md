@@ -125,6 +125,46 @@ After spin 1 was completed I was not able to get components for spin 2 although 
 
 [Install instructions by Carl Claunch](https://github.com/MattisLind/IPCMemoryExpansion/blob/main/HP%20Integral%20board%20instructions.pdf)
 
+## BOM
+This is a BOM for the spin 2 board:
+
+| Component designator | Description | Mouser order number | Misc. |
+|----------------------|-------------|---------------------|-------|
+| R1,R5,R6,R7,R8,R9,R11,R14,R15| 10kOhm SMD 0805 |  -  |   |
+| R2,R3,R4        | 330 Ohm SMD 0805 | - | |
+| R10 | 1MOhm SMD 0805 | - | |
+| R12,R13 | 22 Ohm SMD 0805 | - | |
+| RN1,RN2,RN15,RN16 |  network 4 x bussed 56 Ohm THT | 652-4608X-2LF-56 | |
+| RN3,RN4,RN5,RN6,RN11,RN12 | network 8 x star 3.9 KOhm  THT | 652-4609X-1LF-3.9K | |
+| RN10 | network 5 x star 3.3 KOhm THT | 652-4606X-1LF-3.3K | |
+| RN7,RN8,RN9,RN10,RN13,RN14 | network 8 x star 3.3 KOhm THT | 652-4609X-1LF-3.3K | |
+| RN6 |  network 5 x star 3.9 KOhm | 652-4606X-1LF-3.9K | |
+| C1,C2,C3,C5,C6,C7,C8 | 100 nF Ceramic THT, RM5 | - | |
+| C4,C10 | 100 uF Electrolytic THT, RM 2.5 | - ||
+| C9,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C27,C28,C29,C30,C31,C32 | 100 nF SMD 0805 | - ||
+| C22,C25,C26| 2.2 uF   SMD, 0805 | - | C25 is on the underside just below the processor chip, close to C29. The silkscreen is a bit bad |
+| C23,C24 | 22 pF     SMD, 0805 | - | |
+| D1 | IN4148 SMD | 750-1N4148W-HF | Located on the top side close to the processor |
+| D2 | LED green 3mm THT | 859-LTL-4231N | |
+| D3 | LED yellow 3mm THT | 859-LTL-4251N | |
+| D4 | LED red 3mm THT | 859-LTL-4221N | |
+| D5,D6 | MBRS130L SMD, 2010 | 78-VS-MBRS130L-M35BT | |
+| SW1 |  8 DIP switch - piano style THT | 774-1958MS | |
+| U1,U2,U3,U4,U5,U10 | 74LVC245 THT | 595-SN74LVC245ANE4 | |
+| U6 | XC2C32A SMD | 217-XC2C32A-6VQG44I | |
+| U7 | SST38VF6401 SMD | 804-38VF64019CEKE | |
+| U8 |  AS6C6416 SMD | 913-AS6C6416-55TIN | |
+| U9 | STM32F407ZET  SMD | 511-STM32F407ZET7 | |
+| U11 | 74LS38 THT | - | |
+| U13 | AMS1117-3.3 SMD | 621-AZ1117CD-3.3TRG1 | Mounted on the bottom side |
+| Y1 | Crystal 8 MHz | 815-ABL-8-B2 | |
+| J1 | C64AC, 2 x 32 pin, 90 deg angle THT | 617-09732647801 |
+| J2,J7,J13,J14,J15,J16,J17,J18,J19,J20,J21,J22,J23 | Test points | - | Normally not needed |
+| J3 | Mini USB | 710-65100516121 | |
+| J4 | 2 x 7 pin header, 90 deg angle, RM 2.54 | - | JTAG for Xilinx CPLD |
+| J5 | 2 x 10 pin header, 90 deg angle, RM 2.54 | 710-61202021721 | JTAG for STM32 |
+| J6 | 3 pin header, 90 deg angle, RM 2.54 | 538-22-28-8031 | Serial output |
+
 ## Links
 
 [HP Museum page on the Integral PC](http://www.hpmuseum.net/display_item.php?hw=122)
